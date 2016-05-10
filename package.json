@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/weboxstudio/artoo-campus/issues"
   },
-  "homepage": "https://github.com/weboxstudio/artoo-campus#readme"
+  "homepage": "https://github.com/weboxstudio/artoo-campus#readme",
+  "dependencies": {
+    "angular": "^1.5.5"
+  }
 }
