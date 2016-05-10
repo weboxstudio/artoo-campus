@@ -1,0 +1,19 @@
+{
+  "name": "artoo-campus",
+  "version": "1.0.0",
+  "description": "MEAN exercises and example for ArToo Campus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weboxstudio/artoo-campus.git"
+  },
+  "author": "David Sorrentino",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/weboxstudio/artoo-campus/issues"
+  },
+  "homepage": "https://github.com/weboxstudio/artoo-campus#readme"
+}
