@@ -5,9 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
     <title>Artoo Campus - Controllers</title>
+    <link rel="stylesheet" href="codebase/index.css">
   </head>
   
   <body ng-app="artoo">
+    <appbar>
+      <div class="image">
+        <img src="assets/artoo-logo.png" alt="ArToo logo">
+      </div>
+      <ul class="breadcrumbs">
+        <li><a href="/codebase">Codebase</a></li>
+        <li><a href>Controllers</a></li>
+      </ul>
+    </appbar>
+    
     <!-- bind the item controller to an element -->
     <!-- interpolate the data to the view -->
     <!-- understanding the scope -->
@@ -16,7 +27,7 @@
     <!-- create a controller for the player for managing data such as personal and game info -->
     
     <script src="node_modules/angular/angular.min.js"></script>
-    <script src="controllers/app.js"></script>
+    <script src="codebase/controllers/app.js"></script>
     <!-- load the item controller -->
   </body>
 </html>
