@@ -26,12 +26,14 @@
     "angular-route": "^1.5.5",
     "angular-sanitize": "^1.5.5",
     "body-parser": "^1.15.1",
-    "connect-livereload": "^0.5.4",
     "cookie-parser": "^1.4.1",
     "express": "^4.13.4",
-    "gulp-live-server": "0.0.29",
     "method-override": "^2.3.5",
     "morgan": "^1.7.0",
     "ui-router": "^1.0.0-alpha.3"
+  },
+  "devDependencies": {
+    "connect-livereload": "^0.5.4",
+    "gulp-live-server": "0.0.29"
   }
 }
