@@ -3,6 +3,7 @@
 
   // Run button configuration
   "commands": {
+    "Start server": "node server/server.js",
     "Node version": "node --version"
   },
 
