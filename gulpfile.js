@@ -10,7 +10,7 @@ gulp.task('default', () => {
     console.log(`Changed asset: ${file}`);
     server.notify.apply(server, [file]);
   });
-  
+
   // watch the client files
   gulp.watch(['client/**/**/*.js', 'client/**/**/*.html', 'client/**/**/*.css'], (file) => {
     console.log(`Changed client file: ${file.path}`);

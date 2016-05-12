@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const development = (process.env.NODE_ENV === 'production') ? false : true;
+const settings = require('./settings');
 
 // setup server
 const app = express();

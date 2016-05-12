@@ -4,3 +4,5 @@ npm-debug.log*
 # Dependency directory
 node_modules
 
+# Settings
+server/settings.json
