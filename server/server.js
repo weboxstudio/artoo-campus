@@ -7,10 +7,10 @@ const path = require('path');
 
 // Setup server
 const app = express();
-//app.use(require('connect-livereload')({port: 7777}));
+app.use(require('connect-livereload')({port: 7777}));
 
 app.use(logger('dev'));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(methodOverride());
 app.use(cookieParser());

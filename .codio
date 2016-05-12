@@ -3,13 +3,13 @@
 
   // Run button configuration
   "commands": {
-    "Start server": "node server/server.js",
+    "Start server": "gulp",
     "Node version": "node --version"
   },
 
   // Preview button configuration
   "preview": {
     "Project Index (static)": "http://{{domain}}/{{index}}",
-    "Box URL": "http://{{domain3000}}/"
+    "Box URL": "http://{{domain}}:3000/"
   }
 }
