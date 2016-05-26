@@ -50,16 +50,7 @@ const main = angular.module('main', [
     }, {
       name: 'MongoDB',
       url: '/subjects/mongodb',
-    }, {
-      name: '',
-      url: '',
-    }, {
-      name: '',
-      url: '',
-    }, {
-      name: '',
-      url: '',
-    }];
+    },];
   });
 
 angular.element(document).ready(() => {
