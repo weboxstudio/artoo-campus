@@ -12,7 +12,7 @@ gulp.task('default', () => {
   });
 
   // watch the client files
-  gulp.watch(['client/**/**/*.js', 'client/**/**/*.html', 'client/**/**/*.css'], (file) => {
+  gulp.watch(['./index.html', './*.js', 'client/**/**/**/*.js', 'client/**/**/**/*.html', 'client/**/**/**/*.css'], (file) => {
     console.log(`Changed client file: ${file.path}`);
     server.notify.apply(server, [file]);
   });

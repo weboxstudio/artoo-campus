@@ -27,6 +27,7 @@
     "angular-sanitize": "^1.5.5",
     "body-parser": "^1.15.1",
     "cookie-parser": "^1.4.1",
+    "es6-shim": "^0.35.1",
     "express": "^4.13.4",
     "method-override": "^2.3.5",
     "morgan": "^1.7.0",

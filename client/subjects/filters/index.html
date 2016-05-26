@@ -4,20 +4,15 @@
     <base href="/">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
-    <title>Artoo Campus - MEAN Exercises and Examples</title>
+    <title>Artoo Campus - Filters</title>
     <link rel="stylesheet" href="main.css">
   </head>
   
-  <body>
+  <body ng-app="artoo">
     <appbar></appbar>
     
-    <ul id="subjects">
-      <li ng-repeat="subject in ::subjects"><a ng-href="{{::subject.url}}" ng-bind="::subject.name"></a></li>
-    </ul>
-    
-    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="ui/appbar/appbar.js"></script>
-    <script src="main.js"></script>
+    <script src="subjects/filters/app.js"></script>
   </body>
 </html>

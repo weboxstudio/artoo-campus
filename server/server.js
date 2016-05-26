@@ -31,8 +31,8 @@ app.use(cookieParser());
 
 // serve static files
 app.use('/public', express.static(path.join(__dirname, '..', 'public')));
-app.use('/client', express.static(path.join(__dirname, '..', 'client')));
 app.use('/node_modules', express.static(path.join(__dirname, '..', 'node_modules')));
+app.use('/', express.static(path.join(__dirname, '..', 'client')));
 
 // handle not-found resources
 app.get('/:url(api|node_modules|public)/*', (req, res) => {
