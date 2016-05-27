@@ -11,17 +11,19 @@
   <body ng-app="artoo">
     <appbar></appbar>
     
-    <!-- operazioni numeriche -->
+    <!-- numeric operations -->
     <div>3 + 7 = </div>
+    
+    <!-- operations on strings -->
     <div>foo + bar = </div>
-    <!-- operazioni sulle stringhe -->
     
     <div ng-init="user = {name: 'John', surnmae: 'Doe', age: 27}">
-      <!-- interpolazioni -->
+      <!-- interpolation -->
       <div>Il mio nome è: </div>
       <div>La mia età è: </div>
-      <div ng-init="currentYear = 2015">Sono nato nell'anno: </div>
-      <!-- understanding the scope -->
+      
+      <div ng-init="currentYear = 2016">Ora siamo nell'anno: </div>
+
       <!-- understanding the one-time binding -->
     </div>
     
