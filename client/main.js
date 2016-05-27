@@ -15,9 +15,6 @@ const main = angular.module('main', [
       name: 'Services',
       url: '/subjects/services',
     }, {
-      name: 'Providers',
-      url: '/subjects/providers',
-    }, {
       name: 'Forms',
       url: '/subjects/forms',
     }, {
