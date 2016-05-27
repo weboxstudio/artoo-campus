@@ -1,0 +1,56 @@
+appbar {
+  background: #4285f4;
+  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+  color: #fefefe;
+  display: flex;
+  height: 50px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+
+appbar .image,
+appbar .breadcrumbs {
+  margin: auto 5px;
+}
+
+/* appbar.image */
+appbar .image {
+  height: 40px;
+  text-align: center;
+  width: 40px;
+}
+
+appbar .image img {
+  height: 100%;
+}
+
+/* appbar.breadcrumbs */
+appbar .breadcrumbs {
+  align-items: center;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+appbar .breadcrumbs li:after {
+  content: '/';
+  margin: 0 10px;
+}
+
+appbar .breadcrumbs li a {
+  color: #fefefe;
+  margin: auto 0;
+  text-decoration: none;
+}
+
+appbar .breadcrumbs li:last-child a {
+  pointer-events: none;
+}
+
+appbar .breadcrumbs li:last-child:after {
+  content: '';
+}

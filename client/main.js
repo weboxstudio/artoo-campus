@@ -21,9 +21,6 @@ const main = angular.module('main', [
       name: 'Filters',
       url: '/subjects/filters',
     }, {
-      name: 'Custom filters',
-      url: '/subjects/custom-filters',
-    }, {
       name: 'Directives',
       url: '/subjects/directives',
     }, {
