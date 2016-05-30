@@ -1,5 +1,5 @@
 const main = angular.module('main', [
-  'appbar',    
+  'appbar',
 ])
   .run(($rootScope) => {
     $rootScope.subjects = [{
@@ -52,7 +52,6 @@ const main = angular.module('main', [
 
 angular.element(document).ready(() => {
   angular.bootstrap(document, ['main'], {
-    strictDi: false
+    strictDi: false,
   });
 });
-
