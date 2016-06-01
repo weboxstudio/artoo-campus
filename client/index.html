@@ -13,7 +13,7 @@
     <appbar></appbar>
     
     <ul id="subjects">
-      <li ng-repeat="subject in ::subjects"><a ng-href="{{::subject.url}}" ng-bind="::subject.name"></a></li>
+      <li ng-repeat="subject in ::subjects"><a ng-href="{{::subject.url}}">{{::$index+1}}. {{::subject.name}}</a></li>
     </ul>
     
     <script src="node_modules/es6-shim/es6-shim.min.js"></script>
