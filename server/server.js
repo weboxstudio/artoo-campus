@@ -50,5 +50,5 @@ const port = 3000;
 
 // start server
 server.listen(port, () => {
-  console.log(`Cheerio!\nAn awesome node.js server is listening on ${port} in ${process.env.NODE_ENV} mode.\nAmazing things are about to happen! =)\n`);
+  console.info(`Cheerio!\nAn awesome node.js server is listening on ${port} in ${process.env.NODE_ENV} mode.\nAmazing things are about to happen! =)`);
 });
