@@ -1,5 +1,5 @@
 # ArToo Campus
-MEAN exercises and examples for ArToo Campus
+MEAN exercises, examples and project for ArToo Campus
 
 ## Install packages
 ```
