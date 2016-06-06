@@ -24,11 +24,11 @@ const main = angular.module('main', [
       name: 'Directives',
       url: '/subjects/directives',
     }, {
-      name: 'Templates',
-      url: '/subjects/templates',
-    }, {
       name: 'Custom directives',
       url: '/subjects/custom-directives',
+    }, {
+      name: 'Templates',
+      url: '/subjects/templates',
     }, {
       name: 'Components',
       url: '/subjects/components',
