@@ -1,5 +1,15 @@
 # ArToo Campus
-MEAN exercises, examples and project for ArToo Campus
+MEAN exercises, examples and project for ArToo Campus.
+
+## Start
+Fork this repo.
+
+## Setup git in your development environment
+```
+git init
+git config --global pull.rebase true
+git clone git@github.com:yourUsername/artoo-campus.git .
+```
 
 ## Install packages
 ```
@@ -8,7 +18,7 @@ npm install
 
 ## Install gulp
 ```
-npm install -g gulp
+(sudo) npm install -g gulp
 ```
 
 ## Exercises mockups
