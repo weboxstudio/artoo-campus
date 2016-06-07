@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const gls = require('gulp-live-server');
 
 gulp.task('default', () => {
-  const server = gls('server/server.js', {env: {NODE_ENV: 'development'}}, 7777);
+  const server = gls('server/server.js', {env: {NODE_ENV: 'development'}}, 8081);
   server.start();
 
   // watch the assets

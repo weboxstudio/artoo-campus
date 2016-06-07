@@ -18,7 +18,7 @@ const settings = require('./settings');
 const app = express();
 
 // inject livereload snippet
-if (development) app.use(require('connect-livereload')({port: 7777}));
+if (development) app.use(require('connect-livereload')({port: 8081}));
 
 // setup logger
 const loggerMode = (development) ? 'dev' : 'combined';
@@ -66,7 +66,7 @@ app.get('/*', (req, res) => {
 
 // define server
 const server = require('http').createServer(app);
-const port = 3000;
+const port = 8080;
 
 // start server
 server.listen(port, () => {
