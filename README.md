@@ -4,7 +4,7 @@ MEAN exercises, examples and project for ArToo Campus.
 ## Start
 Fork this repo.
 
-## Setup git in your development environment
+## Setup git
 ```
 git init
 git config --global pull.rebase true
