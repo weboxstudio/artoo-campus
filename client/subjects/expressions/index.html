@@ -13,17 +13,19 @@
     <appbar></appbar>
     
     <!-- numeric operations -->
-    <div>3 + 7 = </div>
+    <div>3 + 7 = {{3 + 7}}</div>
     
     <!-- operations on strings -->
-    <div>foo + bar = </div>
+    <div>foo + bar = {{'foo' + 'bar' }} </div>
     
     <div ng-init="user = {name: 'John', surnmae: 'Doe', age: 27}">
       <!-- interpolation -->
-      <div>Il mio nome è: </div>
-      <div>La mia età è: </div>
+      <div>Il mio nome è: {{user.name}} </div>
+      <div>La mia età è: {{user.age}}</div>
       
-      <div ng-init="currentYear = 2016">Ora siamo nell'anno: </div>
+      <div ng-init="currentYear = 2016">Ora siamo nell'anno: {{::currentYear}}</div>
+      
+      <button ng-click="currentYear = currentYear +1">+1 year</button>
       
       <!-- understanding the one-time binding with a +1 button -->
     </div>
