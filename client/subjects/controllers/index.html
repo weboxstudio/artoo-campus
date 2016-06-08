@@ -7,14 +7,59 @@
     <title>Artoo Campus - Controllers</title>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="ui/appbar/appbar.css">
+     <link rel="stylesheet" href="ui/form/form.css">
+    
   </head>
   
   <body ng-app="artoo">
     <appbar></appbar>
     
+    
+      <div ng-controller="ItemsCrtl" ng-hide="!item">
+    <div ng-controller="PlayerCtrl">
+      <div>Player Name: {{::player.name}}</div>      
+      <div>Player Hp: {{player.hp}}</div>
+      <div>Player Level: {{player.level}}</div>
+      <div>Player exp: {{player.exp}}</div>
+      <br/>
+      <div>Is Player Dead? {{isDead()}}</div>
+    
+    <br/>
+    <button ng-click="takeDamage(30)">Take hit!</button>
+    <button ng-click="gainExp(57)">Gain Exp!</button>
+    <button ng-click="levelUp()"> Level Up!</button>
+    </div>
+    </div>
+    <hr>
     <!-- load the item controller -->
     
     <!-- bind the item controller to an element -->
+    <div ng-controller="ItemsCrtl" ng-hide="!item">
+      <div>
+       Name : <span ng-bind="item.name"></span>
+      </div>
+       <div ng-show="visibleDescription">
+       Description : <span ng-bind="item.description"></span>
+      </div>
+      <button ng-click="toggleDescription()">
+        <span ng-show="visibleDescription">Show</span>
+        <span ng-hide="visibleDescription">Hide</span>
+        description
+        </button>
+       <div>
+       Slots : <span ng-bind="item.slots"></span>
+      </div>
+       <div>
+        Fits in bag? {{checkIfFits(item, 5)}}
+      </div>
+      <div>
+       <img ng-hide="!item" ng-src="{{item.image}}" alt="" />
+      </div>
+      
+      <button ng-click="dispose()">Dispose</button>
+    </div>
+    
+    <hr>
     
     <!-- interpolate the data to the view -->
     
@@ -23,10 +68,13 @@
     <!-- add handles for behaviours -->
     
     <!-- create another controller for the player for managing data such as personal and game info -->
+  
     
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="ui/appbar/appbar.js"></script>
 
     <script src="subjects/controllers/app.js"></script>
+    <script type="text/javascript" src="subjects/controllers/item.controller.js"></script>
+    <script type="text/javascript" src="subjects/controllers/player.controller.js"></script>
   </body>
 </html>
