@@ -1,6 +1,9 @@
 angular.module('artoo', [
-  'appbar',
-])
+    'appbar',
+  ])
   .config((AppbarSrvProvider) => {
-    AppbarSrvProvider.setSubject({name: 'Services', url: 'subjects/services'});
+    AppbarSrvProvider.setSubject({
+      name: 'Services',
+      url: 'subjects/services'
+    });
   });
