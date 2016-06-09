@@ -36,8 +36,29 @@ npm install
 ![Quests 4](https://assets.moqups.com/57dqoZC60v/Page_1.png)
 
 
-### Project
-Name: 
+### Progetto
+ +* Nome Progetto: My Molaskine
+ 
+###Funzioni
+ +* Agenda - note ed eventi
+ +* Rubrica - lista contatti
+ +* Evidenziare gli eventi e le informazioni annesse
+ 
+ 
+### Membri del Team
+ +* [Silvia Peveri](https://github.com/silviapeveri) 
+ +* [Alessandro Covre](https://github.com/AlessandroCovre) 
+ +* [Mattia De Luca](https://github.com/Selfrules) 
+ +* [Erik Szalai](https://github.com/ErikSzalai) 
+ +* [Lorenzo Cestaro](https://github.com/LorenzoCestaro) 
+ +
+### Funzioni Utenti
+ +* Come Utente, Inserire un contatto.
+ +* Come Utente, Inserire un nuovo evento in agenda.
+ +* Come Utente, Aggiungere un contatto ad un evento.
+ +* Come Utente, Controllare i dettagli di un evento.
+ +* Come Utente, Modificare un contatto.
+ +* Come Utente, Modificare un evento.
+ +* Come Utente, Filtrare gli eventi tramite i contatti.
+ +* Come Utente, Filtrare gli eventi tramite la data.
 
-####Features
-*
