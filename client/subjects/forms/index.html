@@ -1,33 +1,87 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <base href="/">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width">
-    <title>Artoo Campus - Forms</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="ui/appbar/appbar.css">
-    <link rel="stylesheet" href="ui/form/form.css">
-  </head>
-  
-  <body ng-app="artoo">
-    <appbar></appbar>
-    
-    <!-- implement a form for inserting items -->
-    
-    <!-- interpolate results -->
-    
-    <!-- validate the form -->
-    
-    <!-- add a style to valid and invalid fields -->
-    
-    <!-- add a reset button to the form -->
-    
-    <!-- create an items service and extend it in the controller -->
-    
-    <script src="node_modules/angular/angular.min.js"></script>
-    <script src="ui/appbar/appbar.js"></script>
-    <script src="subjects/forms/app.js"></script>
-    <script src="subjects/forms/items.controller.js"></script>
-  </body>
+
+<head>
+  <base href="/">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width">
+  <title>Artoo Campus - Forms</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="ui/appbar/appbar.css">
+  <link rel="stylesheet" href="ui/form/form.css">
+</head>
+
+<body ng-app="artoo">
+  <appbar></appbar>
+
+  <!-- implement a form for inserting items -->
+  <div ng-controller="ItemsCtrl">
+
+    <select name="" ng-options="option.code as option.name for option in ItemsSrv.get()" ng-model="selectedItem" ng-change="selectItem(selectedItem)"></select>
+
+
+    <form name="forms" ng-submit="insert(item, forms)" novalidate autocomplete="off">
+
+      <div class="row">
+        <input name="name" type="text" ng-model="item.name" required/>
+        <label>Nome</label>
+      </div>
+
+      <div class="row">
+        <textarea name="description" row="3" ng-model="item.description" required></textarea>
+        <label>Description</label>
+      </div>
+
+      <div class="row">
+        <input name="image" type="text" ng-model="item.image" required/>
+        <label>Image</label>
+      </div>
+
+      <button ng-disable="update(item, forms)">Submit</button>
+      <a href ng-click=resetForm(forms)>Reset</a>
+
+    </form>
+
+    <!--<hr>
+    <div>Text: {{justAnInput}}</div>
+    <div>Dirty: {{forms.$dirty}}</div>
+    <div>Pristine: {{forms.$pristine}}</div>
+    <div>Valid: {{forms.$valid}}</div>
+    <div>Invalid: {{forms.$invalid}}</div>
+    <div>Submit: {{forms.$submitted}}</div>
+    <div>Error: {{forms.$error}}</div>
+    <hr>
+    -->
+    <hr>
+    <div style="padding-left: 10px; padding-right: 10px; " ng-repeat="item in ItemsSrv.get()">
+      <div>Name: {{item.name}}</div>
+      <div>Description: {{item.description}}</div>
+      <div><img ng-src="{{item.image}}" alt="{{item.name}} picture" /></div>
+    </div>
+    <hr>
+
+  </div>
+
+
+
+
+
+  <!-- interpolate results -->
+
+  <!-- validate the form -->
+
+  <!-- add a style to valid and invalid fields -->
+
+  <!-- create an items service and extend it in the controller -->
+
+  <!-- add a reset button to the form -->
+
+
+  <script src="node_modules/angular/angular.min.js"></script>
+  <script src="ui/appbar/appbar.js"></script>
+  <script src="subjects/forms/app.js"></script>
+  <script src="subjects/forms/items.controller.js"></script>
+  <script src="subjects/forms/items.services.js"></script>
+</body>
+
 </html>
