@@ -1,23 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <base href="/">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width">
-    <title>Artoo Campus - Custom Directives</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="ui/appbar/appbar.css">
-  </head>
-  
-  <body ng-app="artoo">
-    <appbar></appbar>
-    
-    <!-- create a custom directive that applies css properties to an element -->
-    
-    <!-- create a custom directive that logs player's click actions -->
-    
-    <script src="node_modules/angular/angular.min.js"></script>
-    <script src="ui/appbar/appbar.js"></script>
-    <script src="subjects/custom-directives/app.js"></script>
-  </body>
+
+<head>
+  <base href="/">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width">
+  <title>Artoo Campus - Custom Directives</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="ui/appbar/appbar.css">
+  <link rel="stylesheet" href="ui/form/form.css">
+</head>
+
+<body ng-app="artoo">
+  <appbar></appbar>
+  <div ng-controller="cssCtrl">
+    <div css-adder options="options">Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.
+      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Sed porttitor lectus nibh. Donec rutrum congue leo eget malesuada. Quisque velit
+      nisi, pretium ut lacinia in, elementum id enim. Cras ultricies ligula sed magna dictum porta. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.</div>
+
+    <div log="paragraph">Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.
+      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Sed porttitor lectus nibh. Donec rutrum congue leo eget malesuada. Quisque velit
+      nisi, pretium ut lacinia in, elementum id enim. Cras ultricies ligula sed magna dictum porta. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.</div>
+  </div>
+  <!-- create a custom directive that applies css properties to an element -->
+  <div ng-controller="playerCtrl">
+    <h2>Player Logs</h2>
+    <ul>
+      <li ng-repeat="log in playerSrv.getLogs()">{{log.text}}, at time {{log.date | date: 'hh:MM:ss'}}</li>
+    </ul>
+  </div>
+  <!-- create a custom directive that logs player's click actions -->
+  <button id="fight-button" class="btn" log="fight">Fight!</button>
+  <button log="potion">Drink a potion</button>
+
+  <script src="node_modules/angular/angular.min.js"></script>
+  <script src="ui/appbar/appbar.js"></script>
+  <script src="subjects/custom-directives/app.js"></script>
+  <script src="subjects/custom-directives/css.directive.js"></script>
+  <script src="subjects/custom-directives/css.controller.js"></script>
+  <script src="subjects/custom-directives/log.directive.js"></script>
+  <script src="subjects/custom-directives/player.service.js"></script>
+  <script src="subjects/custom-directives/player.controller.js"></script>
+</body>
+
 </html>
