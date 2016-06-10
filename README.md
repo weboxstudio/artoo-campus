@@ -37,7 +37,7 @@ npm install
 
 
 ### Progetto
- +* Nome Progetto: My Molaskine
+ +* Nome Progetto: My Moleskine
  
 ###Funzioni
  +* Agenda - note ed eventi

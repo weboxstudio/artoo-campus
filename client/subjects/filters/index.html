@@ -1,39 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <base href="/">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width">
-    <title>Artoo Campus - Filters</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="ui/appbar/appbar.css">
-    <link rel="stylesheet" href="ui/form/form.css">
-  </head>
-  
-  <body ng-app="artoo">
-    <appbar></appbar>
-    
-    <!-- get a list of items -->
-    <ul>
-      <li ng-repeat="item in ::items">{{::item}}</li>
+
+<head>
+  <base href="/">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width">
+  <title>Artoo Campus - Filters</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="ui/appbar/appbar.css">
+
+</head>
+
+<body ng-app="artoo">
+  <appbar></appbar>
+
+  <!-- get a list of items -->
+  <div ng-controller="ItemsCtrl">
+
+    <h2>Order By</h2>
+    <select name="orderByOptions" ng-options="option.prop as option.title for option in orderByOptions" ng-model="selectedOrderByOptions"></select>
+
+    <labale>Reverse?
+      <input type="checkbox" ng-model="selectedReverse" />
+    </labale>
+
+    <h2>Filters</h2>
+    <input type="text" ng-model="search[selectedFilterProp]" />
+
+    <form>
+
+      <label> 
+        All
+        <input type="radio" ng-model="selectedFilterProp" value="$"/>
+      </label>
+
+      <label> 
+        Name
+        <input type="radio" ng-model="selectedFilterProp" value="name"/>
+      </label>
+
+      <label> 
+        Description
+        <input type="radio" ng-model="selectedFilterProp" value="description"/>
+      </label>
+
+
+    </form>
+
+    <h2>Items</h2>
+    <ul style="list-style: none;">
+      <li ng-repeat="item in items |filter:search | orderBy:selectedOrderByOptions">
+        <h4>{{::item.name}}, {{::item.price | price}} , {{item.availability | availability}} pieces</h4>
+        <p>{{::item.description}}</p>
+        <p>Races: {{::item.races | races}}</p>
+        <p>Suitable? {{item.races | suitable | yesOrNo}}</p>
+        <p>Created at: {{item.createdAt | date: 'dd/MM/yyyy'}}</p>
+        <hr>
+      </li>
     </ul>
-    
-    <!-- sort items by price -->
-    
-    <!-- sort items by name -->
-    
-    <!-- filter items for name -->
-    
-    <!-- implement a filter for prices -->
-    
-    <!-- implement a filter for availability -->
-    
-    <!-- implement a filter for suitabilty -->
-    
-    <!-- implement a filter for races -->
-    
-    <script src="node_modules/angular/angular.min.js"></script>
-    <script src="ui/appbar/appbar.js"></script>
-    <script src="subjects/filters/app.js"></script>
-  </body>
+  </div>
+
+  <!-- sort items by price -->
+
+  <!-- sort items by name -->
+
+  <!-- filter items for name -->
+
+  <!-- implement a filter for prices -->
+
+  <!-- implement a filter for availability -->
+
+  <!-- implement a filter for suitabilty -->
+
+  <!-- implement a filter for races -->
+
+  <script src="node_modules/angular/angular.min.js"></script>
+  <script src="ui/appbar/appbar.js"></script>
+  <script src="subjects/filters/app.js"></script>
+  <script src="subjects/filters/items.controller.js"></script>
+  <script src="subjects/filters/items.filter.js"></script>
+  <script src="subjects/filters/player.service.js"></script>
+  <script src="subjects/filters/text.filter.js"></script>
+</body>
+
 </html>
