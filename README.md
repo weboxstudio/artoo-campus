@@ -41,7 +41,7 @@ Smart post-its manager.
 ### Stories
 * As a user, I want to create a new post-it.
 * As a user, I want to remove a post-it.
-* As a user, I want to change a post-it's status.
+* As a user, I want to change a post-it's status to in-progress and done.
 * As a user, I want to sort post-its by dates, status, etc.
 * As a user, I want to filter post-its by dates, status, etc.
 * As a user, I want to get stats about my post-its.
