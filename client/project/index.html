@@ -10,7 +10,24 @@
   
   <body ng-app="spm">
     
+    <div ng-controller="PostitCtrl">
+      <h2>Post-its</h2>
+      
+      <div ng-repeat="postit in PostitSrv.get()">
+        <div>Id: {{postit.id}}</div>
+        <div>Status: {{postit.status | status}}</div>
+        <div>Created at: {{postit.dates.createdAt | date:'fullDate'}}</div>
+        <div>In progress at: {{postit.dates.inProgressAt | date:'fullDate'}}</div>
+        <div>Done at: {{postit.dates.doneAt | date:'fullDate'}}</div>
+        <div>Title: {{postit.title}}</div>
+        <div>Body: {{postit.body}}</div>
+      </div>
+    </div>
+    
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="project/app.js"></script>
+    <script src="project/postit/postit.service.js"></script>
+    <script src="project/postit/postit.controller.js"></script>
+    <script src="project/postit/postit.filter.js"></script>
   </body>
 </html>
