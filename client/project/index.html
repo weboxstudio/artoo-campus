@@ -21,6 +21,9 @@
         <div>Done at: {{postit.dates.doneAt | date:'fullDate'}}</div>
         <div>Title: {{postit.title}}</div>
         <div>Body: {{postit.body}}</div>
+        <button ng-hide="PostitSrv.is(postit, 'done')" ng-click="PostitSrv.setStatus(postit, 'done')">Done</button>
+        <button ng-show="PostitSrv.is(postit, 'todo')" ng-click="PostitSrv.setStatus(postit, 'progress')">In progress</button>
+        <button ng-click="PostitSrv.remove(postit)">Remove</button>
       </div>
     </div>
     

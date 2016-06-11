@@ -49,13 +49,24 @@ class Postit {
   }
   
   /**
+   * is the post-it todo, in progress, or done?
+   * 
+   * @input {Object} postit
+   * @input {String} status
+   * @return {Boolean}
+   */
+  is(postit, status) {
+    return postit.status === status;
+  }
+  
+  /**
    * remove a post-it
    * 
    * @input {Object} postit
    */
   remove(postit) {
-    this.postits.splice(postits.findIndex(p => p.id === postit.id), 1);
-  };
+    this.postits.splice(this.postits.findIndex(p => p.id === postit.id), 1);
+  }
   
   /**
    * set a post-it's status
@@ -65,7 +76,7 @@ class Postit {
    */
   setStatus(postit, status) {
     this.postits.forEach((singlePostit) => {
-      if (singlePostit.code === postit.code) singlePostit.status = status;
+      if (singlePostit.id === postit.id) singlePostit.status = status;
     });
   }
 }
