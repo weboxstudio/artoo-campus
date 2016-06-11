@@ -11,16 +11,32 @@
   <body ng-app="spm">
     
     <div ng-controller="PostitCtrl">
+      
       <h2>Post-its</h2>
       
-      <div ng-repeat="postit in PostitSrv.get()">
-        <div>Id: {{postit.id}}</div>
+      <h3>Sort</h3>
+      <form>
+        <select ng-options="option as option.title for option in ::orderOptions" ng-model="selectedOrder"></select>
+        
+        <button ng-click="selectedOrder.reverse = !selectedOrder.reverse">Reverse</button>
+      </form>
+      
+      <h3>Filter</h3>
+      <form>
+        <select ng-model="selectedFilter"></select>
+      </form>
+      
+      <h3>Add a post-it</h3>
+            
+      <div ng-repeat="postit in PostitSrv.get() | orderBy:selectedOrder.name:selectedOrder.reverse">
+        <div>Id: {{::postit.id}}</div>
         <div>Status: {{postit.status | status}}</div>
-        <div>Created at: {{postit.dates.createdAt | date:'fullDate'}}</div>
-        <div>In progress at: {{postit.dates.inProgressAt | date:'fullDate'}}</div>
-        <div>Done at: {{postit.dates.doneAt | date:'fullDate'}}</div>
-        <div>Title: {{postit.title}}</div>
-        <div>Body: {{postit.body}}</div>
+        <div>Created at: {{postit.dates.createdAt | date:'medium'}}</div>
+        <div>Due at: {{postit.dates.dueAt | date:'medium'}}</div>
+        <div>In progress at: {{postit.dates.inProgressAt | date:'medium'}}</div>
+        <div>Done at: {{postit.dates.doneAt | date:'medium'}}</div>
+        <div>Title: {{::postit.title}}</div>
+        <div>Body: {{::postit.body}}</div>
         <button ng-hide="PostitSrv.is(postit, 'done')" ng-click="PostitSrv.setStatus(postit, 'done')">Done</button>
         <button ng-show="PostitSrv.is(postit, 'todo')" ng-click="PostitSrv.setStatus(postit, 'progress')">In progress</button>
         <button ng-click="PostitSrv.remove(postit)">Remove</button>
