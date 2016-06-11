@@ -45,8 +45,20 @@ class PostitCtrl {
       name: 'done',
       title: 'Done',
     },];
+
+    $scope.dueDateOptions = [{
+      name: 'all',
+      title: 'All',
+    }, {
+      name: 'expired',
+      title: 'Expired',
+    }, {
+      name: 'not-expired',
+      title: 'Not expired',
+    },];
     
     // init filter options
+    $scope.selectedDueDateFilter = $scope.dueDateOptions[0].name;
     $scope.search = {
       status: $scope.statusOptions[0].name,
     };
