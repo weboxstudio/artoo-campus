@@ -1,7 +1,7 @@
 class Postit {
   constructor() {
     this.postits = [{
-      id: '001',
+      id: '1',
       title: 'Buy concert tickets',
       body: 'Suspendisse potenti. Donec posuere vulputate arcu.',
       status: 'todo',
@@ -10,7 +10,7 @@ class Postit {
         dueAt: new Date(2016, 6, 12, 16, 55),
       },
     }, {
-      id: '002',
+      id: '2',
       title: 'Call Marco',
       body: 'Suspendisse potenti. Donec posuere vulputate arcu.',
       status: 'done',
@@ -21,7 +21,7 @@ class Postit {
         inProgressAt: new Date(2016, 2, 17, 19, 23),
       },
     }, {
-      id: '003',
+      id: '3',
       title: 'Renew my personal domain',
       body: 'Suspendisse potenti. Donec posuere vulputate arcu.',
       status: 'progress',
@@ -39,6 +39,9 @@ class Postit {
    * @input {Object} postit
    */
   add(postit) {
+    postit.id = this.postits.length + 1;
+    postit.status = 'todo';
+    postit.dates.createdAt = new Date();
     this.postits.push(postit);
   }
   

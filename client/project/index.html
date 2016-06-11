@@ -17,26 +17,49 @@
       <h3>Sort</h3>
       <form>
         <select ng-options="option as option.title for option in ::orderOptions" ng-model="selectedOrder"></select>
-        
         <button ng-click="selectedOrder.reverse = !selectedOrder.reverse">Reverse</button>
       </form>
       
       <h3>Filter</h3>
       <form>
-        <select ng-options="option.name as option.title for option in ::statusOptions" ng-model="search.status"></select>
-        <select ng-options="option.name as option.title for option in ::dueDateOptions" ng-model="selectedDueDateFilter"></select>
+        <label>By title</label>
+        <input type="text" ng-model="search.title">
         
+        <label>By status</label>
+        <select ng-options="option.name as option.title for option in ::statusOptions" ng-model="search.status"></select>
+        
+        <label>By due date</label>
+        <select ng-options="option.name as option.title for option in ::dueDateOptions" ng-model="selectedDueDateFilter"></select>
       </form>
       
       <h3>Add a post-it</h3>
-            
+      <form name="form" ng-submit="PostitSrv.add(postit, form)">
+        <div>
+          <label>Title</label>
+          <input type="text" ng-model="postit.title">
+        </div>
+        
+        <div>
+          <label>Body</label>
+          <textarea rows="3" ng-model="postit.body"></textarea>
+        </div>
+        
+        <div>
+          <label>Due date</label>
+          <input type="date" ng-model="postit.dates.dueAt">
+        </div>
+        
+        <button ng-disabled="form.$invalid">Add</button>
+      </form>
+      
+      <h3>List</h3>
       <div ng-repeat="postit in PostitSrv.get() | filter:search | dueDate:selectedDueDateFilter | orderBy:selectedOrder.name:selectedOrder.reverse">
         <div>Id: {{::postit.id}}</div>
         <div>Status: {{postit.status | status}}</div>
         <div>Created at: {{postit.dates.createdAt | date:'medium'}}</div>
         <div>Due at: {{postit.dates.dueAt | date:'medium'}}</div>
-        <div>In progress at: {{postit.dates.inProgressAt | date:'medium'}}</div>
-        <div>Done at: {{postit.dates.doneAt | date:'medium'}}</div>
+        <div ng-show="postit.dates.inProgressAt">In progress at: {{postit.dates.inProgressAt | date:'medium'}}</div>
+        <div ng-show="postit.dates.doneAt">Done at: {{postit.dates.doneAt | date:'medium'}}</div>
         <div>Title: {{::postit.title}}</div>
         <div>Body: {{::postit.body}}</div>
         <button ng-hide="PostitSrv.is(postit, 'done')" ng-click="PostitSrv.setStatus(postit, 'done')">Done</button>
