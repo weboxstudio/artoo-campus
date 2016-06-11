@@ -65,6 +65,7 @@
         <button ng-hide="PostitSrv.is(postit, 'done')" ng-click="PostitSrv.setStatus(postit, 'done')">Done</button>
         <button ng-show="PostitSrv.is(postit, 'todo')" ng-click="PostitSrv.setStatus(postit, 'progress')">In progress</button>
         <button ng-click="PostitSrv.remove(postit)">Remove</button>
+        <hr>
       </div>
     </div>
     
