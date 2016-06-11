@@ -2,6 +2,7 @@ class PostitCtrl {
   constructor($scope, PostitSrv) {
     $scope.PostitSrv = PostitSrv;
     
+    // order options
     $scope.orderOptions = [{
       name: 'title',
       title: 'Title',
@@ -24,9 +25,31 @@ class PostitCtrl {
       reverse: true,
     },];
     
+    // init order options to creation date
     $scope.selectedOrder = $scope.orderOptions[1];
-        
-    $scope.filterOptions = [{},];
+
+    // filter by status options
+    $scope.statusOptions = [{
+      name: '',
+      title: 'All',
+    }, {
+      name: '!done',
+      title: 'Not done',
+    }, {
+      name: 'todo',
+      title: 'To do',
+    }, {
+      name: 'progress',
+      title: 'In progress',
+    }, {
+      name: 'done',
+      title: 'Done',
+    },];
+    
+    // init filter options
+    $scope.search = {
+      status: $scope.statusOptions[0].name,
+    };
   }
 }
 
