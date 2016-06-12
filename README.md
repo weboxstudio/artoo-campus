@@ -1,5 +1,5 @@
 # ArToo Campus
-MEAN exercises, examples and project for ArToo Campus.
+MEAN exercises, examples and project for ArToo Campus 2.0.
 
 ## Start
 Fork this repo.
