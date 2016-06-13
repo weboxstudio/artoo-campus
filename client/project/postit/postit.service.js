@@ -81,8 +81,6 @@ class Postit {
    * @input {String} status
    */
   setStatus(postit, status) {
-    console.log(postit, status);
-    
     this.postits.forEach((singlePostit) => {
       if (singlePostit.id === postit.id) singlePostit.status = status;
     });
