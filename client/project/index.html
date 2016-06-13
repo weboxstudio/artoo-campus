@@ -10,7 +10,7 @@
   
   <body ng-app="spm">
     
-    <div ng-controller="PostitCtrl">
+    <div ng-controller="MainCtrl">
       
       <h2>Post-its</h2>
       
@@ -53,26 +53,16 @@
       </form>
       
       <h3>List</h3>
-      <div ng-repeat="postit in PostitSrv.get() | filter:search | dueDate:selectedDueDateFilter | orderBy:selectedOrder.name:selectedOrder.reverse">
-        <div>Id: {{::postit.id}}</div>
-        <div>Status: {{postit.status | status}}</div>
-        <div>Created at: {{postit.dates.createdAt | date:'medium'}}</div>
-        <div>Due at: {{postit.dates.dueAt | date:'medium'}}</div>
-        <div ng-show="postit.dates.inProgressAt">In progress at: {{postit.dates.inProgressAt | date:'medium'}}</div>
-        <div ng-show="postit.dates.doneAt">Done at: {{postit.dates.doneAt | date:'medium'}}</div>
-        <div>Title: {{::postit.title}}</div>
-        <div>Body: {{::postit.body}}</div>
-        <button ng-hide="PostitSrv.is(postit, 'done')" ng-click="PostitSrv.setStatus(postit, 'done')">Done</button>
-        <button ng-show="PostitSrv.is(postit, 'todo')" ng-click="PostitSrv.setStatus(postit, 'progress')">In progress</button>
-        <button ng-click="PostitSrv.remove(postit)">Remove</button>
-        <hr>
-      </div>
+      <postit data="postit" on-delete="PostitSrv.remove(postit)" ng-repeat="postit in PostitSrv.get() | filter:search | dueDate:selectedDueDateFilter | orderBy:selectedOrder.name:selectedOrder.reverse">
+      </postit>
     </div>
     
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="project/app.js"></script>
+    <script src="project/main.controller.js"></script>
     <script src="project/postit/postit.service.js"></script>
     <script src="project/postit/postit.controller.js"></script>
     <script src="project/postit/postit.filter.js"></script>
+    <script src="project/postit/postit.component.js"></script>
   </body>
 </html>

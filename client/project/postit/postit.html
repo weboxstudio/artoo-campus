@@ -1,0 +1,12 @@
+<div>Id: {{::PostitCtrl.postit.id}}</div>
+<div>Status: {{PostitCtrl.postit.status | status}}</div>
+<div>Created at: {{PostitCtrl.postit.dates.createdAt | date:'medium'}}</div>
+<div>Due at: {{PostitCtrl.postit.dates.dueAt | date:'medium'}}</div>
+<div ng-show="PostitCtrl.postit.dates.inProgressAt">In progress at: {{PostitCtrl.postit.dates.inProgressAt | date:'medium'}}</div>
+<div ng-show="PostitCtrl.postit.dates.doneAt">Done at: {{PostitCtrl.postit.dates.doneAt | date:'medium'}}</div>
+<div>Title: {{::PostitCtrl.postit.title}}</div>
+<div>Body: {{::PostitCtrl.postit.body}}</div>
+<button ng-hide="PostitSrv.is(PostitCtrl.postit, 'done')" ng-click="PostitSrv.setStatus(PostitCtrl.postit, 'done')">Done</button>
+<button ng-show="PostitSrv.is(PostitCtrl.postit, 'todo')" ng-click="PostitSrv.setStatus(PostitCtrl.postit, 'progress')">In progress</button>
+<button ng-click="PostitCtrl.onDelete({postit: PostitCtrl.postit})">Remove</button>
+<hr>
