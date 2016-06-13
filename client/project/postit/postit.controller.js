@@ -1,5 +1,7 @@
 class PostitCtrl {
-  constructor() {}
+  constructor(PostitSrv) {
+    this.PostitSrv = PostitSrv;
+  }
 }
 
 angular.module('spm').controller('PostitCtrl', PostitCtrl);

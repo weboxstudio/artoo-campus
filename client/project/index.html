@@ -53,7 +53,7 @@
       </form>
       
       <h3>List</h3>
-      <postit data="postit" on-delete="PostitSrv.remove(postit)" ng-repeat="postit in PostitSrv.get() | filter:search | dueDate:selectedDueDateFilter | orderBy:selectedOrder.name:selectedOrder.reverse">
+      <postit data="postit" on-set-status="PostitSrv.setStatus(postit, status)" on-delete="PostitSrv.remove(postit)" ng-repeat="postit in PostitSrv.get() | filter:search | dueDate:selectedDueDateFilter | orderBy:selectedOrder.name:selectedOrder.reverse">
       </postit>
     </div>
     
