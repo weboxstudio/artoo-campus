@@ -10,52 +10,7 @@
   
   <body ng-app="spm">
     
-    <div ng-controller="PostitsCtrl">
-      
-      <h2>Post-its</h2>
-      
-      <h3>Sort</h3>
-      <form>
-        <select ng-options="option as option.title for option in ::orderOptions" ng-model="selectedOrder"></select>
-        <button ng-click="selectedOrder.reverse = !selectedOrder.reverse">Reverse</button>
-      </form>
-      
-      <h3>Filter</h3>
-      <form>
-        <label>By title</label>
-        <input type="text" ng-model="search.title">
-        
-        <label>By status</label>
-        <select ng-options="option.name as option.title for option in ::statusOptions" ng-model="search.status"></select>
-        
-        <label>By due date</label>
-        <select ng-options="option.name as option.title for option in ::dueDateOptions" ng-model="selectedDueDateFilter"></select>
-      </form>
-      
-      <h3>Add a post-it</h3>
-      <form name="form" ng-submit="PostitSrv.add(postit, form)">
-        <div>
-          <label>Title</label>
-          <input type="text" ng-model="postit.title">
-        </div>
-        
-        <div>
-          <label>Body</label>
-          <textarea rows="3" ng-model="postit.body"></textarea>
-        </div>
-        
-        <div>
-          <label>Due date</label>
-          <input type="date" ng-model="postit.dates.dueAt">
-        </div>
-        
-        <button ng-disabled="form.$invalid">Add</button>
-      </form>
-      
-      <h3>List</h3>
-      <postit data="postit" on-set-status="PostitSrv.setStatus(postit, status)" on-delete="PostitSrv.remove(postit)" ng-repeat="postit in PostitSrv.get() | filter:search | dueDate:selectedDueDateFilter | orderBy:selectedOrder.name:selectedOrder.reverse">
-      </postit>
-    </div>
+    <div ng-controller="PostitsCtrl" ng-include="'project/postits/postits.html'"></div>
     
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="project/app.js"></script>
