@@ -1,4 +1,4 @@
-class MainCtrl {
+class PostitsCtrl {
   constructor($scope, PostitSrv) { 
     $scope.PostitSrv = PostitSrv;
     
@@ -65,4 +65,4 @@ class MainCtrl {
   }
 }
 
-angular.module('spm').controller('MainCtrl', MainCtrl);
+angular.module('spm').controller('PostitsCtrl', PostitsCtrl);

@@ -6,5 +6,5 @@ angular.module('spm').component('postit', {
   },
   controller: 'PostitCtrl',
   controllerAs: 'PostitCtrl',
-  templateUrl: 'project/postit/postit.html',
+  templateUrl: 'project/postits/postit/postit.html',
 });
