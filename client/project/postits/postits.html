@@ -1,5 +1,3 @@
-<h2>Post-its</h2>
-
 <h3>Sort</h3>
 <form name="sortForm" layout="row" layout-align="center center" novalidate autocomplete="off">
   <md-input-container flex>
@@ -45,10 +43,7 @@
     <textarea rows="3" ng-model="postit.body"></textarea>
   </md-input-container>
 
-  <md-input-container flex>
-    <label>Due date</label>
-    <input type="date" ng-model="postit.dates.dueAt">
-  </md-input-container>
+  <md-datepicker flex="nogrow" ng-model="postit.dates.dueAt" md-placeholder="Due date"></md-datepicker>
 
   <div flex="100" layout="row" layout-align="end">
     <md-button class="md-raised md-primary" ng-disabled="addForm.$invalid">Add</md-button>

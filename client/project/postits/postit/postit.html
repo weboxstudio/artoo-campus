@@ -1,7 +1,7 @@
 <div>Id: {{::PostitCtrl.postit.id}}</div>
 <div>Status: {{PostitCtrl.postit.status | status}}</div>
 <div>Created at: {{PostitCtrl.postit.dates.createdAt | date:'medium'}}</div>
-<div>Due at: {{PostitCtrl.postit.dates.dueAt | date:'medium'}}</div>
+<div>Due at: {{PostitCtrl.postit.dates.dueAt | date:'mediumDate'}}</div>
 <div ng-show="PostitCtrl.postit.dates.inProgressAt">In progress at: {{PostitCtrl.postit.dates.inProgressAt | date:'medium'}}</div>
 <div ng-show="PostitCtrl.postit.dates.doneAt">Done at: {{PostitCtrl.postit.dates.doneAt | date:'medium'}}</div>
 <div>Title: {{::PostitCtrl.postit.title}}</div>
