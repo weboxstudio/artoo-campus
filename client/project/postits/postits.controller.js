@@ -25,9 +25,6 @@ class PostitsCtrl {
       reverse: true,
     },];
     
-    // init order options to creation date
-    $scope.selectedOrder = $scope.orderOptions[1];
-
     // filter by status options
     $scope.statusOptions = [{
       name: '',
@@ -56,12 +53,6 @@ class PostitsCtrl {
       name: 'not-expired',
       title: 'Not expired',
     },];
-    
-    // init filter options
-    $scope.selectedDueDateFilter = $scope.dueDateOptions[0].name;
-    $scope.search = {
-      status: $scope.statusOptions[0].name,
-    };
   }
 }
 
