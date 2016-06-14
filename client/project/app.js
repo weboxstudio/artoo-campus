@@ -4,6 +4,8 @@ angular.module('spm', [
   'ngMaterial',
   'ngMessages',
 ])
+
+  // config angular material theme
   .config(($mdThemingProvider) => {
     $mdThemingProvider.theme('default')
       .primaryPalette('blue')
