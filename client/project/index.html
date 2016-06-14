@@ -5,12 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
     <title>Artoo Campus - Project</title>
+    <link rel="stylesheet" href="project/css/style.css" type="text/css" />
   </head>
   
-  <body style="margin: 0;">
+  <body ng-app="appenda" style="margin: 0;">
     <!-- to be removed -->
-    <div style="align-items: center; display:flex; flex-direction: column; height: 100vh; justify-content: center;">
-      <h1 style="border: 2px dashed #dedede; color: #dedede; padding: 50px;">Place here your project!</h1>
-    </div>
+    <div id="logo"></div>
+    
+    <contacts></contacts>
+    <div class="clear"></div>
+    <events></events>
+    
+    
+    <!-- scripts -->
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="project/app.js"></script>
+    <script src="project/contacts/contacts.controller.js"></script>
+    <script src="project/contacts/contacts.service.js"></script>
+    <script src="project/contacts/contacts.component.js"></script>
+    <script src="project/contacts/contacts.filter.js"></script>
+    <script src="project/events/events.component.js"></script>
+    <script src="project/events/events.controller.js"></script>
+    <script src="project/events/events.service.js"></script>
+    <script src="project/events/events.filter.js"></script>
+    
+    
   </body>
 </html>

@@ -1,0 +1,55 @@
+<label>
+  Search: 
+  <input type="text" ng-model="search" placeholder="Find a contact"/>
+</label>
+
+<div ng-repeat="contact in ContactsCtrl.ContactsSrv.get() | filterByNameSurname:search">
+  <hr>
+  <img src="{{contact.img}}" alt="{{contact.name}}" />
+  <div>Name: <span class="contact-info"> {{contact.surname}} {{contact.name}}</span></div>
+  <div>Phone:<span class="contact-info"> {{contact.phone}} </span></div>
+  <div>Email:<span class="contact-info"> {{contact.email}} </span></div>
+  <button ng-click="ContactsCtrl.ContactsSrv.delete(contact.id)">Delete contact</button>
+</div>
+
+<hr>
+<form ng-submit="ContactsCtrl.add(newContact)" novalidate autocomplete="off">
+  <div style="margin-bottom:10px;">
+    <label>First Name
+      <input ng-model="newContact.name" type="text" name="name" required placeholder="Insert your Name" />
+    </label>
+  </div>
+  <!--/Fist Name-->
+
+  <div style="margin-bottom:10px;">
+    <label>Last Name
+      <input ng-model="newContact.surname" type="text" name="surname" required placeholder="Insert your Last Name" />
+    </label>
+  </div>
+  <!--/Last Name-->
+
+  <div style="margin-bottom:10px;">
+    <label>Add Phone
+      <input ng-model="newContact.phone" type="text" name="phone" required placeholder="Insert your Phone"/>
+    </label>
+  </div>
+  <!--/Add Phone-->
+
+  <div style="margin-bottom:10px;">
+    <label>Add Email
+      <input ng-model="newContact.email" type="email" name="email" placeholder="Insert your e-mail"/>
+    </label>
+  </div>
+  <!--/Add EMail-->
+
+  <div style="margin-bottom:10px;">
+    <label>Add Photo
+      <input ng-model="newContact.img" type="text" name="photo" placeholder="Insert the URL of your image"/>
+    </label>
+  </div>
+  <!--/Add Photo-->
+
+  <div style="margin-bottom:10px;">
+    <button type="submit">Add Contact</button>
+  </div>
+</form>
