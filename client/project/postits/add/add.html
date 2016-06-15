@@ -1,0 +1,23 @@
+<div layout-padding>
+  <h3>Add a post-it</h3>
+  <form name="addForm" ng-submit="PostitAddCtrl.add(PostitAddCtrl.postit)" novalidate autocomplete="off">
+    <div layout="row" layout-wrap>
+      <md-input-container flex="100" class="md-block">
+        <label>Title</label>
+        <input type="text" ng-model="PostitAddCtrl.postit.title" required>
+      </md-input-container>
+
+      <md-input-container flex="100" class="md-block">
+        <label>Body</label>
+        <textarea rows="3" ng-model="PostitAddCtrl.postit.body"></textarea>
+      </md-input-container>
+
+      <div flex="100" layout="row" layout-align="space-between center">
+        <md-datepicker ng-model="PostitAddCtrl.postit.dates.dueAt" md-placeholder="Due date" required></md-datepicker>
+        
+        <md-button type="submit" class="md-raised md-primary" ng-disabled="addForm.$invalid">Add</md-button>
+      </div>
+      
+    </div>
+  </form>
+</div>

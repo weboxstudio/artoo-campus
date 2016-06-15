@@ -1,0 +1,43 @@
+<md-button aria-label="Add a new postit" class="md-primary md-fab md-fab-bottom-right" layout-align="center center" ui-sref="postits.add">
+  <i class="fa fa-plus"></i>
+</md-button>
+
+<div layout-padding>
+  <h3>Sort</h3>
+  <form name="sortForm" layout="row" layout-align="center center" novalidate autocomplete="off">
+    <md-input-container flex>
+      <md-select ng-model="selectedOrder" aria-label="Sort post-its">
+        <md-option ng-repeat="option in ::PostitsListCtrl.orderOptions" ng-value="::option" ng-bind="::option.title" ng-selected="::option.name === PostitsListCtrl.orderOptions[1].name"></md-option>
+      </md-select>
+    </md-input-container>
+
+    <md-button ng-click="selectedOrder.reverse = !selectedOrder.reverse">Reverse</md-button>
+  </form>
+
+  <h3>Filter</h3>
+  <form name="filterForm" layout="column" layout-gt-xs="row" novalidate autocomplete="off">
+    <md-input-container flex>
+      <label>By title</label>
+      <input type="text" ng-model="search.title">
+    </md-input-container>
+
+    <md-input-container flex>
+      <label>Status</label>
+      <md-select ng-model="search.status">
+        <md-option ng-repeat="option in ::PostitsListCtrl.statusOptions" ng-value="::option.name" ng-bind="::option.title" ng-selected="::option.name === PostitsListCtrl.statusOptions[0].name"></md-option>
+      </md-select>
+    </md-input-container>
+
+    <md-input-container flex>
+      <label>Due date</label>
+      <md-select ng-model="selectedDueDateFilter">
+        <md-option ng-repeat="option in ::PostitsListCtrl.dueDateOptions" ng-value="::option.name" ng-bind="::option.title" ng-selected="::option.name === PostitsListCtrl.dueDateOptions[0].name"></md-option>
+      </md-select>
+    </md-input-container>
+  </form>
+
+  <h3>List</h3>
+  <div layout="row" layout-wrap>
+    <postit flex="100" layout="row" layout-padding ng-repeat="postit in PostitsListCtrl.PostitsSrv.get() | filter:search | dueDate:selectedDueDateFilter | orderBy:selectedOrder.name:selectedOrder.reverse" data="postit" on-set-status="PostitsListCtrl.PostitsSrv.setStatus(postit, status)" on-delete="PostitsListCtrl.PostitsSrv.remove(postit)"></postit>
+  </div>
+</div>

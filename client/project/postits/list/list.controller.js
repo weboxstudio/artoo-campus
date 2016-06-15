@@ -1,9 +1,9 @@
-class PostitsCtrl {
-  constructor($scope, PostitSrv) { 
-    $scope.PostitSrv = PostitSrv;
+class PostitsListCtrl {
+  constructor(PostitsSrv) { 
+    this.PostitsSrv = PostitsSrv;
     
     // order options
-    $scope.orderOptions = [{
+    this.orderOptions = [{
       name: 'title',
       title: 'Title',
       reverse: false,
@@ -26,7 +26,7 @@ class PostitsCtrl {
     },];
     
     // filter by status options
-    $scope.statusOptions = [{
+    this.statusOptions = [{
       name: '',
       title: 'All',
     }, {
@@ -43,7 +43,7 @@ class PostitsCtrl {
       title: 'Done',
     },];
 
-    $scope.dueDateOptions = [{
+    this.dueDateOptions = [{
       name: 'all',
       title: 'All',
     }, {
@@ -56,4 +56,4 @@ class PostitsCtrl {
   }
 }
 
-angular.module('spm').controller('PostitsCtrl', PostitsCtrl);
+angular.module('spm').controller('PostitsListCtrl', PostitsListCtrl);

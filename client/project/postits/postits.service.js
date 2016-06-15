@@ -1,4 +1,4 @@
-class Postit {
+class PostitsSrv {
   constructor() {
     this.postits = [{
       id: '1',
@@ -87,4 +87,4 @@ class Postit {
   }
 }
 
-angular.module('spm').service('PostitSrv', Postit);
+angular.module('spm').service('PostitsSrv', PostitsSrv);

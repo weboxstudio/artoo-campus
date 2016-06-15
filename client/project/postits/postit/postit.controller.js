@@ -1,6 +1,6 @@
 class PostitCtrl {
-  constructor(PostitSrv) {
-    this.PostitSrv = PostitSrv;
+  constructor(PostitsSrv) {
+    this.PostitsSrv = PostitsSrv;
   }
 }
 
