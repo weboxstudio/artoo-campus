@@ -1,4 +1,4 @@
-angular.module('page-loader', [])
+angular.module('page-loader', ['ui.router'])
   .controller('PageLoaderCtrl', function ($scope) {
     $scope.$on('$stateChangeStart', function () {
       $scope.loading = true;

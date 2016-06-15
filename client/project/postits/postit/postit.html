@@ -1,20 +1,15 @@
-<md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+<md-whiteframe class="md-whiteframe-1dp" flex>
+  <div class="md-headline">{{::PostitCtrl.postit.title}}</div>
+  <div class="md-subhead">{{PostitCtrl.postit.status | status}}</div>
+  <span>Created at: {{PostitCtrl.postit.dates.createdAt | date:'medium'}}</span>
+  <span>Due at: {{PostitCtrl.postit.dates.dueAt | date:'mediumDate'}}</span>
+  <span ng-show="PostitCtrl.postit.dates.inProgressAt">In progress at: {{PostitCtrl.postit.dates.inProgressAt | date:'medium'}}</span>
+  <span ng-show="PostitCtrl.postit.dates.doneAt">Done at: {{PostitCtrl.postit.dates.doneAt | date:'medium'}}</span>
+  <div>Body: {{::PostitCtrl.postit.body}}</div>
   
-  <md-card-title>
-    <md-card-title-text>
-      <span class="md-headline">{{::PostitCtrl.postit.title}}</span>
-      <span class="md-subhead">{{PostitCtrl.postit.status | status}}</span>
-      <span>Created at: {{PostitCtrl.postit.dates.createdAt | date:'medium'}}</span>
-      <span>Due at: {{PostitCtrl.postit.dates.dueAt | date:'mediumDate'}}</span>
-      <span ng-show="PostitCtrl.postit.dates.inProgressAt">In progress at: {{PostitCtrl.postit.dates.inProgressAt | date:'medium'}}</span>
-      <span ng-show="PostitCtrl.postit.dates.doneAt">Done at: {{PostitCtrl.postit.dates.doneAt | date:'medium'}}</span>
-      <span>Body: {{::PostitCtrl.postit.body}}</span>
-    </md-card-title-text>
-  </md-card-title>
-  
-  <md-card-actions layout="row" layout-align="end center">
-    <md-button class="md-raised" ng-hide="PostitCtrl.PostitSrv.is(PostitCtrl.postit, 'done')" ng-click="PostitCtrl.onSetStatus({postit: PostitCtrl.postit, status: 'done'})">Done</md-button>
-    <md-button class="md-raised" ng-show="PostitCtrl.PostitSrv.is(PostitCtrl.postit, 'todo')" ng-click="PostitCtrl.onSetStatus({postit: PostitCtrl.postit, status: 'progress'})">In progress</md-button>
-    <md-button class="md-raised" ng-click="PostitCtrl.onDelete({postit: PostitCtrl.postit})">Remove</md-button>
-  </md-card-actions>
-</md-card>
+  <div>
+    <md-button class="md-accent" ng-hide="PostitCtrl.PostitSrv.is(PostitCtrl.postit, 'done')" ng-click="PostitCtrl.onSetStatus({postit: PostitCtrl.postit, status: 'done'})">Done</md-button>
+    <md-button class="md-primary" ng-show="PostitCtrl.PostitSrv.is(PostitCtrl.postit, 'todo')" ng-click="PostitCtrl.onSetStatus({postit: PostitCtrl.postit, status: 'progress'})">In progress</md-button>
+    <md-button class="md-warn" ng-click="PostitCtrl.onDelete({postit: PostitCtrl.postit})">Remove</md-button>
+  </div>
+</md-whiteframe>
