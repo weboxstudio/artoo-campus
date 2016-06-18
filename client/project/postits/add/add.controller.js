@@ -1,12 +1,16 @@
 class PostitAddCtrl {
   constructor($state, PostitsSrv) {
-    this.PostitsSrv = PostitsSrv;
     this.$state = $state;
+    this.postit = PostitsSrv.create();
   }
   
   add(postit) {
-    this.PostitsSrv.add(postit);
-    this.$state.go('postits.list');
+    this.loading = true;
+    
+    postit.$save(postit)
+      .then(data => this.$state.go('postits.list'))
+      .catch(err => console.error(err))
+      .finally(() => this.loading = false);
   }
 } 
 

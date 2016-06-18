@@ -1,6 +1,8 @@
 class PostitsListCtrl {
-  constructor(PostitsSrv) { 
+  constructor(PostitsSrv) {
+    
     this.PostitsSrv = PostitsSrv;
+    this.query();
     
     // order options
     this.orderOptions = [{
@@ -27,7 +29,7 @@ class PostitsListCtrl {
     
     // filter by status options
     this.statusOptions = [{
-      name: '',
+      name: '!all',
       title: 'All',
     }, {
       name: '!done',
@@ -53,6 +55,34 @@ class PostitsListCtrl {
       name: 'not-expired',
       title: 'Not expired',
     },];
+  }
+  
+  query() {
+    this.loading = true;
+    this.PostitsSrv.query()
+      .then(data => this.postits = data)
+      .catch(err => console.error(err))
+      .finally(() => this.loading = false);
+  }
+  
+  remove(postit) {
+    this.loading = true;
+    
+    postit.$remove()
+      .then(data => this.PostitsSrv.query())
+      .then(data => this.postits = data)
+      .catch(err => console.error(err))
+      .finally(() => this.loading = false);
+  }
+  
+  setStatus(postit, status) {
+    this.loading = true;
+    
+    postit.status = status;
+    postit.$setStatus()
+      .then((data) => this.PostitsSrv.query())
+      .catch(err => console.error(err))
+      .finally(() => this.loading = false);
   }
 }
 

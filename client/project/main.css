@@ -1,3 +1,12 @@
+postit {
+  opacity: 1;
+}
+
+postit.loading {
+  opacity: .3;
+  pointer-events: none;
+}
+
 .md-button.md-fab.md-fab-bottom-right {
   bottom: 30px;
   left: auto;

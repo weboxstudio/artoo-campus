@@ -17,13 +17,14 @@ angular.module('spm')
           output = 'To do';
           break;
       }
-
+      
       return output;
     };
   })
 
   .filter('dueDate', () => {
     return (input, mode) => {
+      if (!input) return;
       if (mode === 'all') return input;
       let now = new Date();
       

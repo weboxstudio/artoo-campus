@@ -42,17 +42,14 @@ app.use('/node_modules', express.static(path.join(__dirname, '..', 'node_modules
 app.use('/', express.static(path.join(__dirname, '..', 'client')));
 
 // call sayHello here
-
 // play with response
-
 // URL and params
-
 // middlewares: create a timeRequest middleware and an ip filter middleware
-
 // routers + controllers
 
 // define here your API
-// app.use('/api/items', require('./exercises/items').router);
+//app.use('/api/items', require('./exercises/items').router);
+app.use('/api/postits', require('./project/postits').router);
 
 // handle not-found resources
 app.get('/:url(api|node_modules|public)/*', (req, res) => {

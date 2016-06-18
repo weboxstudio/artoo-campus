@@ -8,8 +8,8 @@
   <div>Body: {{::PostitCtrl.postit.body}}</div>
   
   <div>
-    <md-button class="md-accent" ng-hide="PostitCtrl.PostitSrv.is(PostitCtrl.postit, 'done')" ng-click="PostitCtrl.onSetStatus({postit: PostitCtrl.postit, status: 'done'})">Done</md-button>
-    <md-button class="md-primary" ng-show="PostitCtrl.PostitSrv.is(PostitCtrl.postit, 'todo')" ng-click="PostitCtrl.onSetStatus({postit: PostitCtrl.postit, status: 'progress'})">In progress</md-button>
+    <md-button class="md-accent" ng-hide="PostitCtrl.PostitsSrv.is(PostitCtrl.postit, 'done')" ng-click="PostitCtrl.onSetStatus({postit: PostitCtrl.postit, status: 'done'})">Done</md-button>
+    <md-button class="md-primary" ng-show="PostitCtrl.PostitsSrv.is(PostitCtrl.postit, 'todo')" ng-click="PostitCtrl.onSetStatus({postit: PostitCtrl.postit, status: 'progress'})">In progress</md-button>
     <md-button class="md-warn" ng-click="PostitCtrl.onDelete({postit: PostitCtrl.postit})">Remove</md-button>
   </div>
 </md-whiteframe>

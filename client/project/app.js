@@ -3,6 +3,7 @@ angular.module('spm', [
   'ngAria',
   'ngMaterial',
   'ngMessages',
+  'ngResource',
   'ui.router',
 ])
 
