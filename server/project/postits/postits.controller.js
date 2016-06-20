@@ -3,7 +3,7 @@ module.exports = function () {
   var Postit = require('./postits.model');
   
   function create(req, res) {
-    req.body.dates = {createdAt: new Date()};
+    req.body.dates.createdAt = new Date();
     Postit.create(req.body)
       .then(data => res.status(201).json(data))
       .catch(err => res.status(500).json(err));
