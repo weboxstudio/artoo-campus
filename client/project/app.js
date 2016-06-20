@@ -10,8 +10,8 @@ angular.module('spm', [
   // config angular material theme
   .config(($mdThemingProvider) => {
     $mdThemingProvider.theme('default')
-      .primaryPalette('blue')
-      .accentPalette('light-blue')
+      .primaryPalette('blue-grey')
+      .accentPalette('blue')
       .warnPalette('orange')
       .backgroundPalette('grey');
   })

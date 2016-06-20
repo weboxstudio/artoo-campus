@@ -62,6 +62,6 @@
     </div>
   </div>
   <div layout="row" layout-wrap layout-align="center">
-    <postit flex="100" layout="row" layout-padding ng-class="{loading: PostitsListCtrl.loading}" ng-repeat="postit in PostitsListCtrl.postits | filter:search | dueDate:selectedDueDateFilter | orderBy:selectedOrder.name:selectedOrder.reverse" data="postit" on-set-status="PostitsListCtrl.setStatus(postit, status)" on-delete="PostitsListCtrl.remove(postit)"></postit>
+    <postit flex="100" layout="row" layout-padding class="{{postit.status}}" ng-class="{loading: PostitsListCtrl.loading, expired: PostitsListCtrl.PostitsSrv.isExpired(postit)}" ng-repeat="postit in PostitsListCtrl.postits | filter:search | dueDate:selectedDueDateFilter | orderBy:selectedOrder.name:selectedOrder.reverse" data="postit" on-set-status="PostitsListCtrl.setStatus(postit, status)" on-delete="PostitsListCtrl.remove(postit)"></postit>
   </div>
 </div>

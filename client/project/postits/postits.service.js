@@ -46,6 +46,11 @@ class PostitsSrv {
   is(postit, status) {
     return postit.status === status;
   }
+  
+  isExpired(postit) {
+    const now = new Date();
+    return new Date(postit.dates.dueAt) < now;
+  }
 }
 
 angular.module('spm').service('PostitsSrv', PostitsSrv);

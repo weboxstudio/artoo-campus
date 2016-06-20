@@ -9,7 +9,16 @@ postit.loading {
 
 postit .md-subhead {
   color: #ccc;
+  font-style: italic;
   margin-bottom: 10px;
+}
+
+postit.progress .md-subhead {
+  color: #ffc107;
+}
+
+postit.done .md-subhead {
+  color: #4caf50;
 }
 
 postit .dates {

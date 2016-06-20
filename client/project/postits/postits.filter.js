@@ -22,15 +22,14 @@ angular.module('spm')
     };
   })
 
-  .filter('dueDate', () => {
+  .filter('dueDate', (PostitsSrv) => {
     return (input, mode) => {
       if (!input) return;
       if (mode === 'all') return input;
-      let now = new Date();
-      
+      const now = new Date();
       return input.filter((postit) => {  
-        if (mode === 'expired') return postit.dates.dueAt < now;
-        return postit.dates.dueAt > now;
+        if (mode === 'expired') return PostitsSrv.isExpired(postit);
+        return new Date(postit.dates.dueAt) > now;
       });
     };
   });
