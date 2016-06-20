@@ -78,9 +78,9 @@ class PostitsListCtrl {
   setStatus(postit, status) {
     this.loading = true;
     
-    postit.status = status;
-    postit.$setStatus()
-      .then((data) => this.PostitsSrv.query())
+    postit.$setStatus({status: status})
+      .then(data => this.PostitsSrv.query())
+      .then(data => this.postits = data)
       .catch(err => console.error(err))
       .finally(() => this.loading = false);
   }

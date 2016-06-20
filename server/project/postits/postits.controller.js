@@ -1,41 +1,37 @@
 module.exports = function () {
   
-  var postits = require('./postits').slice();
+  var Postit = require('./postits.model');
   
   function create(req, res) {
-    req.body.id = postits.length + 1;
-    req.body.status = 'todo';
     req.body.dates = {createdAt: new Date()};
-    postits.push(req.body);
-    res.status(201).send();
-  }
-  
-  function find(id) {
-    return postits.findIndex(postit => postit.id === id);
+    Postit.create(req.body)
+      .then(data => res.status(201).json(data))
+      .catch(err => res.status(500).json(err));
   }
   
   function query(req, res) {
-    res.status(200).json(postits);
+    Postit.find().exec()
+      .then(postits => res.status(200).json(postits))
+      .catch(err => res.status(500).send());
   }
   
   function remove(req, res) {
-    var index = find(parseInt(req.params.id));
-    if (index < 0) return res.status(404).send('Postit not found');
-    postits.splice(index, 1);
-    res.status(200).send();
+    Postit.findByIdAndRemove(req.params.id).exec()
+      .then(data => res.status(200).send())
+      .catch(err => res.status(500).send(err));
   }
   
   function reset(req, res) {
-    postits = require('./postits').slice();
-    console.log(postits);
-    res.status(200).send();
+    Postit.remove()
+      .then(data => Postit.create(require('./postits')))
+      .then(data => res.status(201).json(data))
+      .catch(err => res.status(500).json(err));
   }
   
   function setStatus(req, res) {
-    var index = find(parseInt(req.params.id));
-    if (index < 0) return res.status(404).send('Postit not found');
-    postits[index].status = req.body.status;
-    res.status(200).send();
+    Postit.findByIdAndUpdate(req.params.id, {status: req.query.status}).exec()
+      .then(data => res.status(200).json(data))
+      .catch(err => res.status(500).json(err));
   }
   
   // public API

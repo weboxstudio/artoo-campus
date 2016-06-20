@@ -1,7 +1,7 @@
 class PostitsSrv {
   constructor($resource) {
     this.Postits = $resource('/api/postits/:id', {
-      id: '@id',
+      id: '@_id',
     }, {
       setStatus: {
         method: 'PUT',

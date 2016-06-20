@@ -7,12 +7,12 @@ const path = require('path');
 const development = (process.env.NODE_ENV === 'production') ? false : true;
 const settings = require('./settings');
 
-// const mongoose = require('mongoose');
-// mongoose.Promise = require('bluebird');
-// mongoose.connect(settings.mongoUrl, (err) => {
-//   if (err) throw new Error(err);
-//   console.info('Connection to the database was successfull.');
-// });
+const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
+mongoose.connect(settings.mongoUrl, (err) => {
+  if (err) throw new Error(err);
+  console.info('Connection to the database was successfull.');
+});
 
 // setup server
 const app = express();
