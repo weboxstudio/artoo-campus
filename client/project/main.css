@@ -7,6 +7,19 @@ postit.loading {
   pointer-events: none;
 }
 
+postit .md-subhead {
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+postit .dates {
+  margin-bottom: 10px;
+}
+
+postit .body {
+  margin-bottom: 10px;
+}
+
 .md-button.md-fab.md-fab-bottom-right {
   bottom: 30px;
   left: auto;

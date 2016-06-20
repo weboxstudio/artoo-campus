@@ -1,15 +1,18 @@
 <md-whiteframe class="md-whiteframe-1dp" flex>
   <div class="md-headline">{{::PostitCtrl.postit.title}}</div>
   <div class="md-subhead">{{PostitCtrl.postit.status | status}}</div>
-  <span>Created at: {{PostitCtrl.postit.dates.createdAt | date:'medium'}}</span>
-  <span>Due at: {{PostitCtrl.postit.dates.dueAt | date:'mediumDate'}}</span>
-  <span ng-show="PostitCtrl.postit.dates.inProgressAt">In progress at: {{PostitCtrl.postit.dates.inProgressAt | date:'medium'}}</span>
-  <span ng-show="PostitCtrl.postit.dates.doneAt">Done at: {{PostitCtrl.postit.dates.doneAt | date:'medium'}}</span>
-  <div>Body: {{::PostitCtrl.postit.body}}</div>
+  <div class="dates">
+    <span>Created at: {{PostitCtrl.postit.dates.createdAt | date:'medium'}}</span>
+    <span>Due at: {{PostitCtrl.postit.dates.dueAt | date:'mediumDate'}}</span>
+    <span ng-show="PostitCtrl.postit.dates.inProgressAt">In progress at: {{PostitCtrl.postit.dates.inProgressAt | date:'medium'}}</span>
+    <span ng-show="PostitCtrl.postit.dates.doneAt">Done at: {{PostitCtrl.postit.dates.doneAt | date:'medium'}}</span>
+  </div>
   
-  <div>
+  <div class="body">{{::PostitCtrl.postit.body}}</div>
+  
+  <div class="actions">
     <md-button class="md-accent" ng-hide="PostitCtrl.PostitsSrv.is(PostitCtrl.postit, 'done')" ng-click="PostitCtrl.onSetStatus({postit: PostitCtrl.postit, status: 'done'})">Done</md-button>
-    <md-button class="md-primary" ng-show="PostitCtrl.PostitsSrv.is(PostitCtrl.postit, 'todo')" ng-click="PostitCtrl.onSetStatus({postit: PostitCtrl.postit, status: 'progress'})">In progress</md-button>
+    <md-button class="md-accent" ng-show="PostitCtrl.PostitsSrv.is(PostitCtrl.postit, 'todo')" ng-click="PostitCtrl.onSetStatus({postit: PostitCtrl.postit, status: 'progress'})">In progress</md-button>
     <md-button class="md-warn" ng-click="PostitCtrl.onDelete({postit: PostitCtrl.postit})">Remove</md-button>
   </div>
 </md-whiteframe>

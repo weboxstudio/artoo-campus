@@ -24,7 +24,7 @@ class PostitsListCtrl {
     }, {
       name: 'dates.dueAt',
       title: 'Due date',
-      reverse: true,
+      reverse: false,
     },];
     
     // filter by status options

@@ -12,6 +12,6 @@ class PostitAddCtrl {
       .catch(err => console.error(err))
       .finally(() => this.loading = false);
   }
-} 
+}
 
 angular.module('spm').controller('PostitAddCtrl', PostitAddCtrl);

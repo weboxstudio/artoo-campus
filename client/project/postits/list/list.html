@@ -7,11 +7,16 @@
   <form name="sortForm" layout="row" layout-align="center center" novalidate autocomplete="off">
     <md-input-container flex>
       <md-select ng-model="selectedOrder" aria-label="Sort post-its">
-        <md-option ng-repeat="option in ::PostitsListCtrl.orderOptions" ng-value="::option" ng-bind="::option.title" ng-selected="::option.name === PostitsListCtrl.orderOptions[1].name"></md-option>
+        <md-option ng-repeat="option in ::PostitsListCtrl.orderOptions" ng-value="::option" ng-bind="::option.title" ng-selected="::option.name === PostitsListCtrl.orderOptions[4].name"></md-option>
       </md-select>
     </md-input-container>
 
-    <md-button ng-click="selectedOrder.reverse = !selectedOrder.reverse">Reverse</md-button>
+    <md-button class="md-primary" ng-click="selectedOrder.reverse = !selectedOrder.reverse">
+      <md-tooltip md-direction="top">
+        Reverse order
+      </md-tooltip>
+      <i class="fa fa-exchange fa-rotate-90"></i>
+    </md-button>
   </form>
 
   <h3>Filter</h3>
@@ -24,7 +29,7 @@
     <md-input-container flex>
       <label>Status</label>
       <md-select ng-model="search.status">
-        <md-option ng-repeat="option in ::PostitsListCtrl.statusOptions" ng-value="::option.name" ng-bind="::option.title" ng-selected="::option.name === PostitsListCtrl.statusOptions[0].name"></md-option>
+        <md-option ng-repeat="option in ::PostitsListCtrl.statusOptions" ng-value="::option.name" ng-bind="::option.title" ng-selected="::option.name === PostitsListCtrl.statusOptions[1].name"></md-option>
       </md-select>
     </md-input-container>
 
@@ -42,8 +47,18 @@
       <md-progress-circular md-mode="indeterminate" ng-show="PostitsListCtrl.loading"></md-progress-circular>
     </div>
     <div layout="row" layout-align="end">
-      <md-button aria-label="Reset the postits" ng-click="PostitsListCtrl.reset()" ng-disabled="PostitsListCtrl.loading"><i class="fa fa-undo"></i></md-button>
-      <md-button aria-label="Refresh the postits" ng-click="PostitsListCtrl.query()" ng-disabled="PostitsListCtrl.loading"><i class="fa fa-refresh"></i></md-button>
+      <md-button class="md-primary" aria-label="Reset the postits" ng-click="PostitsListCtrl.reset()" ng-disabled="PostitsListCtrl.loading">
+        <md-tooltip md-direction="top">
+          Reset postits
+        </md-tooltip>
+        <i class="fa fa-undo"></i>
+      </md-button>
+      <md-button class="md-primary" aria-label="Refresh the postits" ng-click="PostitsListCtrl.query()" ng-disabled="PostitsListCtrl.loading">
+        <md-tooltip md-direction="top">
+          Refresh postits
+        </md-tooltip>
+        <i class="fa fa-refresh"></i>
+      </md-button>
     </div>
   </div>
   <div layout="row" layout-wrap layout-align="center">
