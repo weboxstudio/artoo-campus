@@ -26,11 +26,13 @@
     "angular-route": "^1.5.5",
     "angular-sanitize": "^1.5.5",
     "angular-ui-router": "^0.3.1",
+    "bluebird": "^3.4.1",
     "body-parser": "^1.15.1",
     "cookie-parser": "^1.4.1",
     "es6-shim": "^0.35.1",
     "express": "^4.13.4",
     "method-override": "^2.3.5",
+    "mongoose": "^4.5.1",
     "morgan": "^1.7.0"
   },
   "devDependencies": {
