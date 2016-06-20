@@ -1,8 +1,15 @@
 class PostitsSrv {
   constructor($resource) {
-    this.Postits = $resource('/api/postits/:id', {
+    this.Postits = $resource('/api/postits/:action/:id', {
       id: '@_id',
     }, {
+      reset: {
+        isArray: true,
+        method: 'GET',
+        params: {
+          action: 'reset',
+        },
+      },
       setStatus: {
         method: 'PUT',
       }
@@ -23,6 +30,10 @@ class PostitsSrv {
    */
   query() {
     return this.Postits.query().$promise;
+  }
+  
+  reset() {
+    return this.Postits.reset().$promise;
   }
   
   /**

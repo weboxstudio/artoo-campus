@@ -41,8 +41,10 @@
       <h3>List</h3>
       <md-progress-circular md-mode="indeterminate" ng-show="PostitsListCtrl.loading"></md-progress-circular>
     </div>
-    
-    <md-button aria-label="Refresh the postits" ng-click="PostitsListCtrl.query()" ng-disabled="PostitsListCtrl.loading"><i class="fa fa-refresh"></i></md-button>
+    <div layout="row" layout-align="end">
+      <md-button aria-label="Reset the postits" ng-click="PostitsListCtrl.reset()" ng-disabled="PostitsListCtrl.loading"><i class="fa fa-undo"></i></md-button>
+      <md-button aria-label="Refresh the postits" ng-click="PostitsListCtrl.query()" ng-disabled="PostitsListCtrl.loading"><i class="fa fa-refresh"></i></md-button>
+    </div>
   </div>
   <div layout="row" layout-wrap layout-align="center">
     <postit flex="100" layout="row" layout-padding ng-class="{loading: PostitsListCtrl.loading}" ng-repeat="postit in PostitsListCtrl.postits | filter:search | dueDate:selectedDueDateFilter | orderBy:selectedOrder.name:selectedOrder.reverse" data="postit" on-set-status="PostitsListCtrl.setStatus(postit, status)" on-delete="PostitsListCtrl.remove(postit)"></postit>

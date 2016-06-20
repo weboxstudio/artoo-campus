@@ -75,6 +75,14 @@ class PostitsListCtrl {
       .finally(() => this.loading = false);
   }
   
+  reset() {
+    this.loading = true;
+    this.PostitsSrv.reset()
+      .then(data => this.postits = data)
+      .catch(err => console.error(err))
+      .finally(() => this.loading = false);
+  }
+  
   setStatus(postit, status) {
     this.loading = true;
     

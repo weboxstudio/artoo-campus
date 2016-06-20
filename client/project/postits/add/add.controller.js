@@ -7,7 +7,7 @@ class PostitAddCtrl {
   add(postit) {
     this.loading = true;
     
-    postit.$save(postit)
+    postit.$save()
       .then(data => this.$state.go('postits.list'))
       .catch(err => console.error(err))
       .finally(() => this.loading = false);
