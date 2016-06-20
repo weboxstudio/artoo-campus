@@ -12,7 +12,7 @@ angular.module('spm', [
     $mdThemingProvider.theme('default')
       .primaryPalette('blue-grey')
       .accentPalette('blue')
-      .warnPalette('orange')
+      .warnPalette('red')
       .backgroundPalette('grey');
   })
 
