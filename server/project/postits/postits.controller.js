@@ -5,8 +5,7 @@ module.exports = function () {
   function create(req, res) {
     req.checkBody('title').notEmpty();
     req.checkBody('dates.dueAt').notEmpty().isDate();
-    const errors = req.validationErrors();
-    if (errors) return res.status(400).send('Bad request');
+    if (req.validationErrors()) return res.status(400).send('Bad request');
     
     req.body.dates.createdAt = new Date();
     Postit.create(req.body)
@@ -21,6 +20,9 @@ module.exports = function () {
   }
   
   function remove(req, res) {
+    req.checkParams('id').isMongoId();
+    if (req.validationErrors()) return res.status(400).send('Bad request');
+    
     Postit.findByIdAndRemove(req.params.id).exec()
       .then(data => res.status(200).send())
       .catch(err => res.status(500).send(err));
