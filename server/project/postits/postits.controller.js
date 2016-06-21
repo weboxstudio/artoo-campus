@@ -36,6 +36,10 @@ module.exports = function () {
   }
   
   function setStatus(req, res) {
+    req.checkParams('id').isMongoId();
+    req.checkQuery('status').isIn(['progress', 'done']);
+    if (req.validationErrors()) return res.status(400).send('Bad request');
+    
     Postit.findByIdAndUpdate(req.params.id, {status: req.query.status}).exec()
       .then(data => res.status(200).json(data))
       .catch(err => res.status(500).json(err));
