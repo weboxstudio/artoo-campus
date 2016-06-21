@@ -13,7 +13,7 @@
       </md-input-container>
 
       <div flex="100" layout="row" layout-align="space-between center">
-        <md-datepicker ng-model="PostitAddCtrl.postit.dates.dueAt" md-placeholder="Due date" required></md-datepicker>
+        <md-datepicker ng-model="PostitAddCtrl.postit.dates.dueAt" md-min-date="PostitAddCtrl.minDueDate" md-placeholder="Due date" required></md-datepicker>
         
         <md-button type="submit" class="md-raised md-primary" ng-disabled="addForm.$invalid">Add</md-button>
       </div>

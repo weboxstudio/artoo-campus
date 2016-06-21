@@ -2,6 +2,7 @@ class PostitAddCtrl {
   constructor($state, PostitsSrv) {
     this.$state = $state;
     this.postit = PostitsSrv.create();
+    this.minDueDate = new Date();
   }
   
   add(postit) {

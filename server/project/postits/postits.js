@@ -21,8 +21,8 @@ module.exports = [{
   body: 'Suspendisse potenti. Donec posuere vulputate arcu.',
   status: 'progress',
   dates: {
-    createdAt: new Date(2016, 5, 16, 12, 23),
-    dueAt: new Date(2016, 6, 20, 12, 23),
+    createdAt: new Date(2016, 2, 16, 12, 23),
+    dueAt: new Date(2016, 3, 20, 12, 23),
     inProgressAt: new Date(2016, 5, 18, 19, 22),
   },
 }];
