@@ -7,6 +7,14 @@ postit.loading {
   pointer-events: none;
 }
 
+postit .icon {
+  margin-left: 10px;
+}
+
+postit .icon .fa-exclamation-triangle {
+  color: #f44336;
+}
+
 postit .md-subhead {
   color: #ccc;
   font-style: italic;

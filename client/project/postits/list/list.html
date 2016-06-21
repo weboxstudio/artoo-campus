@@ -1,9 +1,12 @@
 <md-button aria-label="Add a new postit" class="md-primary md-fab md-fab-bottom-right" layout-align="center center" ui-sref="postits.add">
+  <md-tooltip md-direction="top">
+    Add a postit
+  </md-tooltip>
   <i class="fa fa-plus"></i>
 </md-button>
 
 <div layout-padding>
-  <h3>Sort</h3>
+  <h3 class="md-display-1">Sort</h3>
   <form name="sortForm" layout="row" layout-align="center center" novalidate autocomplete="off">
     <md-input-container flex>
       <md-select ng-model="selectedOrder" aria-label="Sort post-its">
@@ -19,7 +22,7 @@
     </md-button>
   </form>
 
-  <h3>Filter</h3>
+  <h3 class="md-display-1">Filter</h3>
   <form name="filterForm" layout="column" layout-gt-xs="row" novalidate autocomplete="off">
     <md-input-container flex>
       <label>By title</label>
@@ -41,9 +44,9 @@
     </md-input-container>
   </form>
 
-  <div layout="row" layout-align="space-between">
+  <div layout="row" layout-align="space-between center">
     <div layout="row" layout-align="center center">
-      <h3>List</h3>
+      <h3 class="md-display-1">List</h3>
       <md-progress-circular md-mode="indeterminate" ng-show="PostitsListCtrl.loading"></md-progress-circular>
     </div>
     <div layout="row" layout-align="end">
@@ -62,6 +65,6 @@
     </div>
   </div>
   <div layout="row" layout-wrap layout-align="center">
-    <postit flex="100" layout="row" layout-padding class="{{postit.status}}" ng-class="{loading: PostitsListCtrl.loading, expired: PostitsListCtrl.PostitsSrv.isExpired(postit)}" ng-repeat="postit in PostitsListCtrl.postits | filter:search | dueDate:selectedDueDateFilter | orderBy:selectedOrder.name:selectedOrder.reverse" data="postit" on-set-status="PostitsListCtrl.setStatus(postit, status)" on-delete="PostitsListCtrl.remove(postit)"></postit>
+    <postit flex="100" layout="row" layout-padding class="{{postit.status}}" ng-class="{loading: PostitsListCtrl.loading}" ng-repeat="postit in PostitsListCtrl.postits | filter:search | dueDate:selectedDueDateFilter | orderBy:selectedOrder.name:selectedOrder.reverse" data="postit" on-set-status="PostitsListCtrl.setStatus(postit, status)" on-delete="PostitsListCtrl.remove(postit)"></postit>
   </div>
 </div>

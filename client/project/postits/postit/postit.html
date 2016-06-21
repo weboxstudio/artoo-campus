@@ -1,5 +1,13 @@
 <md-whiteframe class="md-whiteframe-1dp" flex>
-  <div class="md-headline">{{::PostitCtrl.postit.title}}</div>
+  <div layout="row" layout-align="start center">
+    <div class="md-headline">{{::PostitCtrl.postit.title}}</div>
+    <div class="icon">
+      <md-tooltip md-direction="right">
+        The postit is expired
+      </md-tooltip>
+      <i class="fa" ng-class="{'fa-exclamation-triangle': PostitCtrl.PostitsSrv.isExpired(PostitCtrl.postit) && !PostitCtrl.PostitsSrv.is(PostitCtrl.postit, 'done')}"></i>
+    </div>
+  </div>
   <div class="md-subhead">{{PostitCtrl.postit.status | status}}</div>
   <div class="dates" layout="column">
     <span>Created at: {{PostitCtrl.postit.dates.createdAt | date:'medium'}}</span>
