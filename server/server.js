@@ -1,6 +1,7 @@
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+const expressValidator = require('express-validator');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const path = require('path');
@@ -29,6 +30,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 // setup the body parser to accept json and populate req.body
 app.use(bodyParser.json());
+
+app.use(expressValidator());
 
 // use HTTP verbs such as PUT or DELETE where the client doesn't support others
 app.use(methodOverride());

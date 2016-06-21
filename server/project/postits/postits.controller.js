@@ -3,6 +3,11 @@ module.exports = function () {
   var Postit = require('./postits.model');
   
   function create(req, res) {
+    req.checkBody('title').notEmpty();
+    req.checkBody('dates.dueAt').notEmpty().isDate();
+    const errors = req.validationErrors();
+    if (errors) return res.status(400).send('Bad request');
+    
     req.body.dates.createdAt = new Date();
     Postit.create(req.body)
       .then(data => res.status(201).json(data))
