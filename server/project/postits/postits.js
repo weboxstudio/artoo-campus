@@ -25,4 +25,22 @@ module.exports = [{
     dueAt: new Date(2016, 3, 20, 12, 23),
     inProgressAt: new Date(2016, 5, 18, 19, 22),
   },
+}, {
+  title: 'My cousin\'s wedding',
+  body: 'Suspendisse potenti. Donec posuere vulputate arcu.',
+  status: 'todo',
+  dates: {
+    createdAt: new Date(2016, 11, 16, 12, 23),
+    dueAt: new Date(2016, 11, 20, 12, 23),
+    inProgressAt: new Date(2016, 11, 18, 19, 22),
+  },
+}, {
+  title: 'Conquer the world',
+  body: 'Suspendisse potenti. Donec posuere vulputate arcu.',
+  status: 'todo',
+  dates: {
+    createdAt: new Date(2016, 5, 16, 12, 23),
+    dueAt: new Date(2016, 6, 20, 12, 23),
+    inProgressAt: new Date(2016, 5, 18, 19, 22),
+  },
 }];

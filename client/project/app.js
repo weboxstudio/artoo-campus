@@ -5,6 +5,7 @@ angular.module('spm', [
   'ngMessages',
   'ngResource',
   'ui.router',
+  'chart.js',
 ])
 
   // config angular material theme
@@ -36,5 +37,15 @@ angular.module('spm', [
         controllerAs: 'PostitAddCtrl',
         templateUrl: 'project/postits/add/add.html',
         url: '/add',
+      })
+      .state('stats', {
+        controller: 'StatsCtrl',
+        controllerAs: 'StatsCtrl',
+        templateUrl: 'project/stats/stats.html',
+        url: '/stats',
       });
+  })
+  
+  .run(($rootScope, $state) => {
+    $rootScope.$state = $state;
   });

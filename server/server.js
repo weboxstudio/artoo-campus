@@ -53,6 +53,7 @@ app.use('/', express.static(path.join(__dirname, '..', 'client')));
 // define here your API
 //app.use('/api/items', require('./exercises/items').router);
 app.use('/api/postits', require('./project/postits').router);
+app.use('/api/stats', require('./project/stats').router);
 
 // handle not-found resources
 app.get('/:url(api|node_modules|public)/*', (req, res) => {
