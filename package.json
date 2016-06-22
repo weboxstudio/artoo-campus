@@ -27,6 +27,7 @@
     "angular-route": "^1.5.5",
     "angular-sanitize": "^1.5.5",
     "angular-ui-router": "^0.3.1",
+    "async": "^2.0.0-rc.6",
     "bluebird": "^3.4.1",
     "body-parser": "^1.15.1",
     "chart.js": "^2.1.6",

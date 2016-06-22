@@ -15,7 +15,12 @@
   <body ng-app="spm">
     <div layout="column" layout-fill>
       <appbar><md-toolbar layout="row" layout-align="space-between center">
-        <h1 class="md-toolbar-tools"><a ui-sref="postits.list">Smart Post-it Manager</a></h1>
+        <h1 class="md-toolbar-tools">
+          <a ui-sref="postits.list">
+            <i class="fa fa-paper-plane-o"></i>
+            <i>Smart Post-its Manager</i>
+          </a>
+        </h1>
         <md-button aria-label="Get the stats" layout="column" layout-align="center" ui-sref="stats" ng-hide="$state.is('stats')">
           <md-tooltip md-direction="left">
             Get the stats

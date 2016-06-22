@@ -1,8 +1,27 @@
 module.exports = function () {
-  var Postit = require('../postits/postits.model');
+  const async = require('async');
+  const Postit = require('../postits/postits.model');
+  
+  function activity(req, res) {
+    const today = new Date();
+    const currentMonth = today.getMonth();
+    const currentYear = today.getFullYear();
+    const months = [];
+    for (var i = currentMonth; i < currentMonth + 12; i++) months.push(i % 12);
+    
+    async.mapSeries(months.reverse(), (month, done) => {
+      const start = new Date(currentYear, month, 1);
+      const end = new Date(currentYear, month + 1, 1);
+      
+      Postit.count({'dates.doneAt': {$gte: start, $lt: end}}, (err, count) => done(err, {month: month, count: count}));
+    }, (err, results) => {
+      if (err) return res.status(500).send(err);
+      res.status(200).send(results);
+    });
+  }
   
   function count(req, res) {
-    var results = [];
+    const results = [];
     Postit.count({status: 'todo'}).exec()
       .then((number) => {
         results.push({
@@ -33,6 +52,7 @@ module.exports = function () {
   }
   
   return {
+    activity: activity,
     count: count,
     query: query,
   };

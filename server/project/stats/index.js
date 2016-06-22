@@ -3,6 +3,7 @@ const router = express.Router();
 const controller = require('./stats.controller')();
 
 router.get('/', controller.query);
+router.get('/activity', controller.activity);
 router.get('/count', controller.count);
 
 module.exports = {

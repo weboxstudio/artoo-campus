@@ -1,12 +1,19 @@
 <div layout-padding>
-  <div layout="column" layout-gt-xs="row">
-    <div flex>
-      <h3 class="md-display-1">Status</h3>
-      <canvas id="pie" class="chart chart-pie" chart-data="StatsCtrl.pCounts" chart-labels="StatsCtrl.labels"></canvas>
+  <div layout="column" layout-gt-sm="row" layout-align="center">
+    <div flex="60">
+      <div layout="row" layout-align="space-between center">
+        <h3 class="md-display-1">Yearly activity</h3>
+        <md-progress-circular md-mode="indeterminate" ng-show="StatsCtrl.activityLoading"></md-progress-circular>
+      </div>
+      <canvas id="line" class="chart chart-line" chart-data="StatsCtrl.activityData" chart-labels="StatsCtrl.activityLabels"></canvas>
     </div>
-    <div flex>
-      <h3 class="md-display-1">Status</h3>
-      <canvas id="radar" class="chart chart-radar" chart-data="StatsCtrl.rCounts" chart-labels="StatsCtrl.labels"></canvas> 
+    <div flex="5"></div>
+    <div flex="35">
+      <div layout="row" layout-align="space-between center">
+        <h3 class="md-display-1">Status</h3>
+        <md-progress-circular md-mode="indeterminate" ng-show="StatsCtrl.statusLoading"></md-progress-circular>
+      </div>
+      <canvas id="pie" class="chart chart-pie" chart-data="StatsCtrl.statusCounts" chart-labels="StatsCtrl.statusLabels"></canvas>
     </div>
   </div>
 </div>
