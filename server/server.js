@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
+const helmet = require('helmet');
 const path = require('path');
 const development = (process.env.NODE_ENV === 'production') ? false : true;
 const settings = require('./settings');
@@ -24,6 +25,8 @@ if (development) app.use(require('connect-livereload')({port: 7777}));
 // setup logger
 const loggerMode = (development) ? 'dev' : 'combined';
 app.use(logger(loggerMode));
+
+app.use(helmet());
 
 // setup body parser for accepting only parser accepts only UTF-8 encoding content
 app.use(bodyParser.urlencoded({extended: false}));
