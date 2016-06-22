@@ -1,8 +1,9 @@
 class PostitsListCtrl {
-  constructor(PostitsSrv) {
+  constructor(PostitsSrv, ToastSrv) {
     
     this.PostitsSrv = PostitsSrv;
-    this.query();
+    this.ToastSrv = ToastSrv;
+    this.query(true);
     
     // order options
     this.orderOptions = [{
@@ -57,10 +58,13 @@ class PostitsListCtrl {
     },];
   }
   
-  query() {
+  query(init) {
     this.loading = true;
     this.PostitsSrv.query()
-      .then(data => this.postits = data)
+      .then(data => {
+        this.postits = data;
+        if (!init) this.ToastSrv.success('Fresh post-its loaded');
+      })
       .catch(err => console.error(err))
       .finally(() => this.loading = false);
   }
@@ -70,7 +74,10 @@ class PostitsListCtrl {
     
     postit.$remove()
       .then(data => this.PostitsSrv.query())
-      .then(data => this.postits = data)
+      .then(data => {
+        this.postits = data;
+        this.ToastSrv.success('Post-it successfully removed');
+      })
       .catch(err => console.error(err))
       .finally(() => this.loading = false);
   }
@@ -78,7 +85,10 @@ class PostitsListCtrl {
   reset() {
     this.loading = true;
     this.PostitsSrv.reset()
-      .then(data => this.postits = data)
+      .then(data => {
+        this.postits = data;
+        this.ToastSrv.success('Post-its successfully reset');
+      })
       .catch(err => console.error(err))
       .finally(() => this.loading = false);
   }
@@ -88,7 +98,10 @@ class PostitsListCtrl {
     
     postit.$setStatus({status: status})
       .then(data => this.PostitsSrv.query())
-      .then(data => this.postits = data)
+      .then(data => {
+        this.postits = data;
+        this.ToastSrv.success('Post-it status set to: ' + status);
+      })
       .catch(err => console.error(err))
       .finally(() => this.loading = false);
   }

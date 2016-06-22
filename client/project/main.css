@@ -40,7 +40,11 @@ postit .body {
 .md-button.md-fab.md-fab-bottom-right {
   bottom: 30px;
   left: auto;
-  position: fixed;
+  position: fixed !important;
   right: 20px;
   top: auto;
+}
+
+md-toast.md-default-theme .md-toast-content, md-toast .md-toast-content {
+  background-color: #4caf50;
 }

@@ -1,6 +1,7 @@
 class PostitAddCtrl {
-  constructor($state, PostitsSrv) {
+  constructor($state, PostitsSrv, ToastSrv) {
     this.$state = $state;
+    this.ToastSrv = ToastSrv;
     this.postit = PostitsSrv.create();
     this.minDueDate = new Date();
   }
@@ -9,7 +10,10 @@ class PostitAddCtrl {
     this.loading = true;
     
     postit.$save()
-      .then(data => this.$state.go('postits.list'))
+      .then(data => {
+        this.ToastSrv.success('Post-it successfully created');
+        this.$state.go('postits.list')
+      })
       .catch(err => console.error(err))
       .finally(() => this.loading = false);
   }
