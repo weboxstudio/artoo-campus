@@ -17,6 +17,16 @@ module.exports = [{
     inProgressAt: new Date(2016, 2, 17, 19, 23),
   },
 }, {
+  title: 'Book spa',
+  body: 'Suspendisse potenti. Donec posuere vulputate arcu.',
+  status: 'done',
+  dates: {
+    createdAt: new Date(2016, 2, 18, 12, 23),
+    doneAt: new Date(2016, 2, 19, 19, 23),
+    dueAt: new Date(2016, 3, 12, 19, 23),
+    inProgressAt: new Date(2016, 2, 18, 19, 23),
+  },
+}, {
   title: 'Renew my personal domain',
   body: 'Suspendisse potenti. Donec posuere vulputate arcu.',
   status: 'progress',
@@ -92,5 +102,25 @@ module.exports = [{
     doneAt: new Date(2016, 9, 19, 12, 23),
     dueAt: new Date(2016, 9, 20, 12, 23),
     inProgressAt: new Date(2016, 8, 18, 19, 22),
+  },
+}, {
+  title: 'Do 100 push-ups',
+  body: 'Suspendisse potenti. Donec posuere vulputate arcu.',
+  status: 'done',
+  dates: {
+    createdAt: new Date(2016, 8, 18, 12, 23),
+    doneAt: new Date(2016, 9, 20, 12, 23),
+    dueAt: new Date(2016, 9, 21, 12, 23),
+    inProgressAt: new Date(2016, 8, 19, 19, 22),
+  },
+}, {
+  title: 'Travel around the world',
+  body: 'Suspendisse potenti. Donec posuere vulputate arcu.',
+  status: 'done',
+  dates: {
+    createdAt: new Date(2016, 5, 18, 12, 23),
+    doneAt: new Date(2016, 5, 20, 12, 23),
+    dueAt: new Date(2016, 5, 21, 12, 23),
+    inProgressAt: new Date(2016, 5, 19, 19, 22),
   },
 },];

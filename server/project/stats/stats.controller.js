@@ -7,9 +7,9 @@ module.exports = function () {
     const currentMonth = today.getMonth();
     const currentYear = today.getFullYear();
     const months = [];
-    for (var i = currentMonth; i < currentMonth + 12; i++) months.push(i % 12);
+    for (var i = currentMonth + 1; i < currentMonth + 13; i++) months.push(i % 12);
     
-    async.mapSeries(months.reverse(), (month, done) => {
+    async.mapSeries(months, (month, done) => {
       const start = new Date(currentYear, month, 1);
       const end = new Date(currentYear, month + 1, 1);
       
